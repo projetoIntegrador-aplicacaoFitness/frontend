@@ -1,28 +1,30 @@
 import { useNavigate } from "react-router-dom";
-import CardPostagens from "../cardpostagens/CardPostagens";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Postagem from "../../../models/Postagem";
+ 
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
+  
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+import Exercicio from "../../../models/Exercicio";
+import CardExercicio from "../cardexercicio/CardTreino";
 
-function ListaPostagens() {
+function ListaExercicios() {  
 
     const navigate = useNavigate();
 
-    const [postagens, setPostagens] = useState<Postagem[]>([]);
+    const [exercicios, setExercicios] = useState<Exercicio[]>([]);  
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
-    async function buscarPostagens() {
+    async function buscarExercicios() {  
         try {
-            await buscar('/postagens', setPostagens, {
+            await buscar('/postagens', setExercicios, {  
                 headers: {
                     Authorization: token,
                 },
             })
-
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout()
@@ -32,18 +34,18 @@ function ListaPostagens() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            ToastAlerta('Você precisa estar logado', "info")
             navigate('/');
         }
     }, [token])
 
     useEffect(() => {
-        buscarPostagens()
-    }, [postagens.length])
+        buscarExercicios()  
+    }, [exercicios.length])  
 
     return (
         <>
-            {postagens.length === 0 && (
+            {exercicios.length === 0 && (  
                 <DNA
                     visible={true}
                     height="200"
@@ -56,13 +58,12 @@ function ListaPostagens() {
             <div className='container mx-auto my-4 
                 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
             >
-                {postagens.map((postagem) => (
-                    <CardPostagens key={postagem.id} postagem={postagem} />
+                {exercicios.map((exercicio) => (  
+                    <CardExercicio key={exercicio.id} exercicio={exercicio} />  
                 ))}
-
             </div>
         </>
     );
 }
 
-export default ListaPostagens;
+export default ListaExercicios;  

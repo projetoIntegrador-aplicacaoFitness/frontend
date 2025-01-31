@@ -1,25 +1,26 @@
 import Popup from 'reactjs-popup';
-import FormPostagem from '../formpostagem/FormPostagem';
 
 import 'reactjs-popup/dist/index.css';
-import './ModalPostagem.css'
+import './ModalExercicio.css';  
+import FormExercicio from '../formexercicio/FormExercicio';
 
-function ModalPostagem() {
+
+function ModalExercicio() {  
     return (
         <>
             <Popup
                 trigger={
                     <button 
                         className='border rounded px-8 py-4 hover:bg-pink hover:text-beige'>
-                        Nova Postagem
+                        Novo Exercício  
                     </button>
                 }
                 modal
             >
-                <FormPostagem />
+                <FormExercicio/>  
             </Popup>
         </>
     );
 }
 
-export default ModalPostagem;
+export default ModalExercicio; 
