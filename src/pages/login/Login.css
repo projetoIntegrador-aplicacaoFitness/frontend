@@ -1,0 +1,19 @@
+.fundoLogin {
+    background-image: url("https://ik.imagekit.io/sanmi/close-up-hand-person-using-modern-laptop-working-internet-connection-young-adult-holding-digital-computer-with-online-technology-browsing-website-network-work.jpg?updatedAt=1738020619258");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    animation: colorTransition 5s ease forwards; 
+}
+
+@keyframes colorTransition {
+    0% {
+        filter: grayscale(100%);
+    }
+    100% {
+        filter: grayscale(0%);
+    }
+}
