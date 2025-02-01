@@ -30,7 +30,7 @@ function Footer() {
                         <a href="https://www.instagram.com/sanmisabrina/" target="_blank">
                             <InstagramLogo size={48} weight='bold' className="transition-colors duration-300 hover:text-pink" />
                         </a>
-                        <Link to=''><Info size={48} weight="bold" /></Link>
+                        <Link to='/sobre'><Info size={48} weight="bold" /></Link>
                     </div>
                 </div>
             </div>
