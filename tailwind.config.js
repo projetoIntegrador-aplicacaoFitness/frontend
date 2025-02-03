@@ -6,19 +6,24 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sunflower: ["Brown Sunflower Sans", "sans-serif"],
+      },
       colors: {
-        black: "#232323",
-        gray: "#979EA2",
-        beige: "#D9D7CE",
-        blue: {
-          DEFAULT: "#0967E7",
-          light: "#5A9FF7",
+        orange: {
+          200: "#F5793B",
+          400: "#f1580c",
         },
-        pink: {
-          DEFAULT: "#FF0084",
-          light: "#FF66B0",
+        peach: {
+          200: "#f79a6b",
         },
-        dark: "#111111",
+        black: {
+          200: "#0c0c0c",
+          600: "#000000",
+        },
+        darkgray: {
+          400: "#252525",
+        },
       },
     },
   },
