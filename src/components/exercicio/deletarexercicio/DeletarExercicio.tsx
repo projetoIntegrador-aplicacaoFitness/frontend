@@ -5,6 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar, deletar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import Exercicio from "../../../models/Exercicio";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function DeletarExercicio() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function DeletarExercicio() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+    ToastAlerta("Você precisa estar logado",'info');
       navigate("/");
     }
   }, [token]);
@@ -54,12 +55,12 @@ function DeletarExercicio() {
         },
       });
 
-      alert("Exercício apagado com sucesso");
+    ToastAlerta("Exercício apagado com sucesso",'sucesso');
     } catch (error: any) {
       if (error.toString().includes("403")) {
         handleLogout();
       } else {
-        alert("Erro ao deletar Exercício.");
+      ToastAlerta("Erro ao deletar Exercício.",'erro');
       }
     }
 

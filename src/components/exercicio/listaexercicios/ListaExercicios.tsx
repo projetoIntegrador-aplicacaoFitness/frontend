@@ -5,6 +5,7 @@ import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
 import Exercicio from "../../../models/Exercicio";
 import CardExercicio from "../cardexercicio/CardExercicio";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaExercicios() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function ListaExercicios() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado",'info');
       navigate("/");
     }
   }, [token]);

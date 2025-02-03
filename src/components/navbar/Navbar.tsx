@@ -59,7 +59,7 @@ function Navbar() {
                                 </span>
                                 <div className="ml-6 mt-2 space-y-2 hidden group-hover:block">
                                     <Link to="/treino" className="block text-peach-200 hover:text-orange-400">Ver Treinos</Link>
-                                    <Link to="/cadastrar-treino" className="block text-peach-200 hover:text-orange-400">Cadastrar Treino</Link>
+                                    <Link to="/exercicios" className="block text-peach-200 hover:text-orange-400">Cadastrar Treino</Link>
                                 </div>
                             </div>
 
@@ -70,7 +70,7 @@ function Navbar() {
                                 </span>
                                 <div className="ml-6 mt-2 space-y-2 hidden group-hover:block">
                                     <Link to="/exercicio" className="block text-peach-200 hover:text-orange-400">Ver Exercícios</Link>
-                                    <Link to="/cadastrar-exercicio" className="block text-peach-200 hover:text-orange-400">Cadastrar Exercício</Link>
+                                    <Link to="/cadastrarCategoria" className="block text-peach-200 hover:text-orange-400">Cadastrar Exercício</Link>
                                 </div>
                             </div>
                             <div className="group">
