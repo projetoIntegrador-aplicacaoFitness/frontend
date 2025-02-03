@@ -1,13 +1,25 @@
-import { ReactNode, useContext, useState } from "react";
+import { ReactNode, useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastAlerta } from "../../utils/ToastAlerta";
-import { FaDumbbell, FaBars } from 'react-icons/fa';
+import { FaBars, FaInfoCircle } from 'react-icons/fa';
+import { FaDumbbell } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
+import { GiStrongMan } from "react-icons/gi";
 
 function Navbar() {
     const navigate = useNavigate();
     const { usuario, handleLogout } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isBlinking, setIsBlinking] = useState(false);
+
+    useEffect(() => {
+        const blinkInterval = setInterval(() => {
+            setIsBlinking(prev => !prev);
+        }, 1000);
+
+        return () => clearInterval(blinkInterval);
+    }, []);
 
     function logout() {
         handleLogout();
@@ -20,9 +32,11 @@ function Navbar() {
     if (usuario.token !== "") {
         component = (
             <div className="font-sunflower">
-                <button 
+                <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="fixed top-4 left-4 z-50 text-orange-400 hover:text-orange-200"
+                    className={`fixed top-4 left-4 z-50 p-2 rounded-full transition-all duration-300 ease-in-out
+                                ${isBlinking ? 'bg-orange-400 text-white' : 'bg-white text-orange-400'}
+                                hover:bg-orange-500 hover:text-white`}
                 >
                     <FaBars size={24} />
                 </button>
@@ -51,7 +65,7 @@ function Navbar() {
 
                             <div className="group">
                                 <span className="text-white text-lg flex items-center cursor-pointer">
-                                    <FaDumbbell className="mr-2" />
+                                    <GiStrongMan className="mr-2" />
                                     <span>EXERCÍCIOS</span>
                                 </span>
                                 <div className="ml-6 mt-2 space-y-2 hidden group-hover:block">
@@ -59,12 +73,30 @@ function Navbar() {
                                     <Link to="/cadastrar-exercicio" className="block text-peach-200 hover:text-orange-400">Cadastrar Exercício</Link>
                                 </div>
                             </div>
+                            <div className="group">
+                                <span className="text-white text-lg flex items-center cursor-pointer">
+                                    <CgProfile className="mr-2" />
+                                    <span>PERFIL</span>
+                                </span>
+                                <div className="ml-6 mt-2 space-y-2 hidden group-hover:block">
+                                    <Link to="/perfil" className="block text-peach-200 hover:text-orange-400">Ver Perfil</Link>
+                                </div>
+                            </div>
+                            <div className="group">
+                                <span className="text-white text-lg flex items-center cursor-pointer">
+                                    <FaInfoCircle className="mr-2" />
+                                    <span>SOBRE</span>
+                                </span>
+                                <div className="ml-6 mt-2 space-y-2 hidden group-hover:block">
+                                    <Link to="/sobre" className="block text-peach-200 hover:text-orange-400">Conheça a Cardanis</Link>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <button onClick={logout} className="absolute bottom-4 left-4 text-white hover:text-orange-400">
-                        Logout
-                    </button>
+                        <button onClick={logout} className="absolute bottom-4 left-4 text-white hover:text-orange-400">
+                            Logout
+                        </button>
+                    </div>
                 </nav>
 
                 <div className={`fixed inset-0 bg-black-200 opacity-50 z-30 ${isMenuOpen ? 'block' : 'hidden'}`} onClick={() => setIsMenuOpen(false)}></div>
