@@ -32,8 +32,8 @@ function Navbar() {
             <Link to='/postagens' className='font-bold hover:font-normal hover:text-pink'>
                 Postagens
             </Link>
-            <Link to='/temas' className='font-bold hover:font-normal hover:text-pink'>
-                Temas
+            <Link to='/categorias' className='font-bold hover:font-normal hover:text-pink'>
+                Categorias
             </Link>
             <Link to='/cadastrarexercicio' className='font-bold hover:font-normal hover:text-pink'>
                 Cadastrar tema

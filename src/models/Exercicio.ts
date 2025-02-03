@@ -1,12 +1,17 @@
 
-import Treino from './Treino';
+import Categoria from './Categoria';
+import Treino from './Categoria';
 import Usuario from './Usuario';
 
 export default interface Exercicio {
   id: number;
-  titulo: string;
-  texto: string;
-  data: string;
-  treino: Treino | null;  
-  usuario: Usuario | null;
+  nome: string;
+  tempo: number,
+  serie: number,
+  repeticao: number,
+  peso: number,
+  descanso: number,
+  foto: string,
+  categoria: Categoria | null;  
+  
 }
