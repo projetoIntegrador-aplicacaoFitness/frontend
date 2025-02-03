@@ -1,0 +1,28 @@
+- Configurar projeto: 
+
+yarn create vite nomedoprojeto --template react-ts
+
+cd nomedoprojeto
+
+yarn
+
+-------acessar a aba Using Vite--------
+https://tailwindcss.com/docs/installation/using-vite
+
+seguir no site as etapas:
+- terminal
+- vite.config.ts
+- ambos arquivos CSS
+
+incluir a linha abaixo no HTML (antes do titulo, linha 7)
+  <link href="/dist/styles.css" rel="stylesheet">
+-----------fim da configuração do Vite------
+
+yarn add @phosphor-icons/react
+
+yarn add react-router-dom
+
+
+Criar pastas com arquivos tsx:
+components > footer > Footer.tsx
+pages > home > Home.tsx
