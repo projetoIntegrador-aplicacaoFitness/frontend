@@ -51,7 +51,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             senha: "",
             foto: "",
             peso: 0,
-            altura: 0, 
+            altura: 0,
             token: ""
         })
     }

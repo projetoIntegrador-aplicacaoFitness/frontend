@@ -22,13 +22,14 @@ function Home() {
               </p>
 
               <div className="flex justify-around gap-4">
-                <ModalExercicio />
+               
               </div>
             </div>
           </div>
         </main>
       </div>
 
+  
     </>
   );
 }
