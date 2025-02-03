@@ -1,26 +1,25 @@
 import Popup from 'reactjs-popup';
-
-
 import 'reactjs-popup/dist/index.css';
-import './ModalExercicio.css'
+import './ModalExercicio.css';  
 import FormExercicio from '../formexercicio/FormExercicio';
 
-function ModalExercicio() {
+
+function ModalExercicio() {  
     return (
         <>
-            <Popup 
+            <Popup
                 trigger={
                     <button 
-                        className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800'>
-                        Novo Exercício
+                        className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold py-2 px-4 rounded'>
+                        Novo Treino
                     </button>
                 }
-                className='bg-black-600' modal
+                modal
             >
-                <FormExercicio />
+                <FormExercicio/>  
             </Popup>
         </>
     );
 }
 
-export default ModalExercicio;
+export default ModalExercicio; 
