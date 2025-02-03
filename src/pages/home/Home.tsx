@@ -1,6 +1,5 @@
 import { useState } from "react";
-import ModalExercicio from "../../components/exercicio/modalpostagem/ModalExercicio";
-import ListaExercicio from "../../components/exercicio/listaexercicio/ListaExercicio";
+
 
 function Home() {
   const [hovered, setHovered] = useState(false);
@@ -22,14 +21,14 @@ function Home() {
               </p>
 
               <div className="flex justify-around gap-4">
-                <ModalExercicio />
+               
               </div>
             </div>
           </div>
         </main>
       </div>
 
-      <ListaExercicio />
+  
     </>
   );
 }
