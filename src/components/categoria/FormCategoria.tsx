@@ -104,7 +104,7 @@ function FormCategoria() {
                         type="text"
                         placeholder="Descreva aqui sua categoria"
                         name='descricao'
-                        className="border-2 border-slate-700 rounded p-2 "
+                        className="border-2 border-slate-700 rounded p-2  text-slate-700"
                         value={categoria.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
 
@@ -116,7 +116,7 @@ function FormCategoria() {
                         type="text"
                         placeholder="Insira o Link com o Ícone da Categoria"
                         name='icone'
-                        className="border-2 border-slate-700 rounded p-2 "
+                        className="border-2 border-slate-700 rounded p-2 text-slate-700 "
                         value={categoria.icone}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         
