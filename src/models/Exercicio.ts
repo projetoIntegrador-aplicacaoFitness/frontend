@@ -1,7 +1,5 @@
 
 import Categoria from './Categoria';
-import Treino from './Categoria';
-import Usuario from './Usuario';
 
 export default interface Exercicio {
   id: number;

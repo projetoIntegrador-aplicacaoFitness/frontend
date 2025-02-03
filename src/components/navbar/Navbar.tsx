@@ -38,7 +38,7 @@ function Navbar() {
             <Link to='/cadastrarCategoria' className='font-bold hover:font-normal hover:text-pink'>
                 Cadastrar categoria
             </Link>
-            <Link to='/cadastrarexercicio' className='font-bold hover:font-normal hover:text-pink'>
+            <Link to='/cadastrarCategoria' className='font-bold hover:font-normal hover:text-pink'>
                 Cadastrar tema
             </Link>
             <Link to='/perfil' className='font-bold hover:font-normal hover:text-pink'>

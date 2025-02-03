@@ -19,7 +19,7 @@ function FormCategoria() {
 
     async function buscarPorId(id: string) {
         try {
-            await buscar(`/categoria/${id}`, setCategoria, {
+            await buscar(`/categorias/${id}`, setCategoria, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {
@@ -50,7 +50,7 @@ function FormCategoria() {
     }
 
     function retornar() {
-        navigate("/categoria")
+        navigate("/categorias")
     }
 
     async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
@@ -59,7 +59,7 @@ function FormCategoria() {
 
         if (id !== undefined) {
             try {
-                await atualizar(`/categoria`, categoria, setCategoria, {
+                await atualizar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
                 alert('A categoria foi atualizada com sucesso!')
@@ -73,7 +73,7 @@ function FormCategoria() {
             }
         } else {
             try {
-                await cadastrar(`/categoria`, categoria, setCategoria, {
+                await cadastrar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
                 alert('A categoria foi cadastrado com sucesso!')
@@ -97,8 +97,8 @@ function FormCategoria() {
                 {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
             </h1>
 
-            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
-                <div className="flex flex-col gap-2 text-white my-8 ">
+            <form className="w-1/2 flex flex-col gap-4 bg-white" onSubmit={gerarNovaCategoria}>
+                <div className="flex flex-col gap-2 ">
                     <label htmlFor="descricao">Descrição da Categoria</label>
                     <input
                         type="text"
@@ -106,6 +106,17 @@ function FormCategoria() {
                         name='descricao'
                         className="border-2 border-slate-700 rounded p-2"
                         value={categoria.descricao}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="icone">Ícone da Categoria</label>
+                    <input
+                        type="text"
+                        placeholder="Insira o Link com o Ícone da Categoria"
+                        name='icone'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={categoria.icone}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
