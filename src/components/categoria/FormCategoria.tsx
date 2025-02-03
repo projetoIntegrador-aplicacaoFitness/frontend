@@ -97,32 +97,36 @@ function FormCategoria() {
                 {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
             </h1>
 
-            <form className="w-1/2 flex flex-col gap-4 bg-white" onSubmit={gerarNovaCategoria}>
+            <form className="w-1/2 flex flex-col gap-4 font-sans text-white  text-lg my-4" onSubmit={gerarNovaCategoria}>
                 <div className="flex flex-col gap-2 ">
                     <label htmlFor="descricao">Descrição da Categoria</label>
                     <input
                         type="text"
                         placeholder="Descreva aqui sua categoria"
                         name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2 border-slate-700 rounded p-2 "
                         value={categoria.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+
                     />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 my-4">
                     <label htmlFor="icone">Ícone da Categoria</label>
                     <input
                         type="text"
                         placeholder="Insira o Link com o Ícone da Categoria"
                         name='icone'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2 border-slate-700 rounded p-2 "
                         value={categoria.icone}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                               hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
+                    className="rounded text-slate-100 font-medium text-2xl bg-orange-400
+                               hover:bg-orange-600  w-1/2 py-2 mx-auto flex 
+                               justify-center my-4 transition-all duration-300 ease-in-out
+                                hover:scale-105"
                     type="submit">
                     {isLoading ?
                         <RotatingLines
