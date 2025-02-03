@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { RotatingLines } from "react-loader-spinner";
+import React from 'react';
 
 function Login() {
   const navigate = useNavigate();
