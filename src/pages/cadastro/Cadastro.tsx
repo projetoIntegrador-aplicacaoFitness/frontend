@@ -76,7 +76,7 @@ function Cadastro() {
         <div className="grid grid-cols-2"></div>
         <div className="flex flex-row"></div>
         <form
-          className="flex justify-center items-center flex-col gap-3 p-8 bg-black rounded-2xl text-yellow-500 mt-8 w-auto"
+          className="flex justify-center items-center flex-col gap-3 p-8 bg-black-600 rounded-2xl text-yellow-500 mt-8 w-auto"
           onSubmit={cadastrarNovoUsuario}
         >
           <h2 className="text-yellow-500 text-5xl">Cadastrar</h2>

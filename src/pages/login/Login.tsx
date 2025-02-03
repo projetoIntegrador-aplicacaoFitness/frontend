@@ -39,7 +39,7 @@ function Login() {
                     h-screen place-items-center font-bold bg-[url(https://ik.imagekit.io/ix39wusls/Imagens%20PI%20Fitness/gymHD?updatedAt=1738333000089)]  bg-cover"
       >
         <form
-          className="flex justify-center items-center flex-col w- gap-4 bg-black p-8 rounded-2xl text-yellow-500 shadow-2xl w-auto"
+          className="flex justify-center items-center flex-col w- gap-4 bg-black-600 p-8 rounded-2xl text-yellow-500 shadow-2xl w-auto"
           onSubmit={login}
         >
           <h2 className="text-yellow-500 text-5xl ">Bem-vindo</h2>
@@ -99,7 +99,6 @@ function Login() {
             </Link>
           </p>
         </form>
-        
       </div>
     </>
   );

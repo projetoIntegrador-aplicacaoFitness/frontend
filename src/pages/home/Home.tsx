@@ -1,5 +1,9 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import ModalExercicio from "../../components/exercicio/modalpostagem/ModalExercicio";
+=======
+import ModalExercicio from "../../components/exercicio/modalexercicio/ModalExercicio";
+>>>>>>> origin/refatorando-categoria-exercicio
 
 function Home() {
   const [hovered, setHovered] = useState(false);
@@ -8,7 +12,14 @@ function Home() {
     <>
       <div
         className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+<<<<<<< HEAD
         style={{ backgroundImage: "url('https://i.postimg.cc/hP5hvrS6/imagemdefundo2.jpg')" }}
+=======
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+        }}
+>>>>>>> origin/refatorando-categoria-exercicio
       >
         <main className="relative flex flex-col justify-center items-center min-h-screen gap-8">
           <div className="container flex flex-col items-center justify-center text-white">

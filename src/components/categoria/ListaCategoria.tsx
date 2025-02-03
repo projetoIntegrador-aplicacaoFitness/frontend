@@ -1,47 +1,51 @@
 import { useContext, useEffect, useState } from "react";
 import { DNA } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
+import Categoria from "../../models/Categoria";
+import CardCategoria from "./CardCategoria";
+import { buscar } from "../../services/Service";
 
-import { buscar } from "../../../services/Service";
-import Treino from "../../../models/Treino";
-import CardTreino from "../cardtreino/CardTreino";
-
-function ListaTreinos() {  
+function ListaCategoria() {
 
     const navigate = useNavigate();
 
-    const [treinos, setTreinos] = useState<Treino[]>([]);  
+    const [categorias, setCategorias] = useState<Categoria[]>([])
 
-    const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
+    const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
 
-    async function buscarTreinos() {  
+    async function buscarCategoria() {
         try {
-            await buscar('/postagens', setTreinos, {  
+            await buscar('/categorias', setCategorias, {
                 headers: { Authorization: token }
-            });
+            })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                handleLogout();
+                handleLogout()
             }
         }
     }
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!');
-            navigate('/');
+            alert('Você precisa estar logado!')
+            navigate('/')
         }
-    }, [token]);
+    }, [token])
 
     useEffect(() => {
-        buscarTreinos();  
-    }, [treinos.length]);
-
+        if (token === '') {
+            alert('Você precisa estar logado!')
+            navigate('/')
+            return;
+        }
+        buscarCategoria(); 
+    }, []); 
+    
     return (
         <>
-        {treinos.length === 0 && (
+        {categorias.length === 0 && (
             <DNA
             visible={true}
             height="200"
@@ -54,14 +58,14 @@ function ListaTreinos() {
             <div className="flex justify-center w-full my-4">
                 <div className="container flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                       {treinos.map((treino) => (  
-                            <CardTreino key={treino.id} treino={treino} />  
+                       {categorias.map((categoria) => (
+                            <CardCategoria key={categoria.id} categoria={categoria} />
                         ))}
                     </div>
                 </div>
             </div>
         </>
-    );
+    )
 }
 
-export default ListaTreinos;
+export default ListaCategoria;

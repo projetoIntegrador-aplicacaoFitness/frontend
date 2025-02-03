@@ -51,6 +51,7 @@ function Navbar() {
                             />
                         </Link>
 
+<<<<<<< HEAD
                         <div className="space-y-4">
                             <div className="group">
                                 <span className="text-white text-lg flex items-center cursor-pointer">
@@ -62,6 +63,30 @@ function Navbar() {
                                     <Link to="/cadastrar-treino" className="block text-peach-200 hover:text-orange-400">Cadastrar Treino</Link>
                                 </div>
                             </div>
+=======
+        <div className='flex gap-4'>
+            <Link to='/exercicios' className='font-bold hover:font-normal hover:text-pink'>
+                Exercícios
+            </Link>
+            <Link to='/categorias' className='font-bold hover:font-normal hover:text-pink'>
+                Categorias
+            </Link>
+            <Link to='/cadastrarCategoria' className='font-bold hover:font-normal hover:text-pink'>
+                Cadastrar categoria
+            </Link>
+            <Link to='/cadastrarCategoria' className='font-bold hover:font-normal hover:text-pink'>
+                Cadastrar tema
+            </Link>
+            <Link to='/perfil' className='font-bold hover:font-normal hover:text-pink'>
+                Perfil
+            </Link>
+            <Link to='' onClick={logout} className='font-bold hover:font-normal hover:text-pink'>
+                Sair
+            </Link>
+        </div>
+    </div>
+</div>
+>>>>>>> origin/refatorando-categoria-exercicio
 
                             <div className="group">
                                 <span className="text-white text-lg flex items-center cursor-pointer">
