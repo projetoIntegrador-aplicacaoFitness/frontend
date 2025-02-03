@@ -11,34 +11,28 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
     return (
         <div className='border flex flex-col border-gray rounded-lg justify-between overflow-hidden 
          transition duration-300 hover:scale-105 my-10 shadow-white shadow-sm
-          grid-cols-1 divide-y divide-gray h-96 w-72'> {/* Ajustei a altura e largura do card */}
-            
-            {/* Cabeçalho */}
+          grid-cols-1 divide-y divide-gray h-96 w-72'> 
+           
             <header className='py-4 px-6 bg-white text-peach font-bold text-lg h-14 
             flex items-center space-x-2'>
                 <GiStrongMan className="mr-2 text-2xl" />
                 <span>Categoria</span>
             </header>
 
-            {/* Contêiner da imagem e descrição */}
-            <div className="flex flex-col items-center flex-grow">
-                {/* Contêiner da imagem */}
-                <div className="h-48 w-full flex items-center justify-center relative">
-                    {/* Overlay escuro sobre a imagem (opcional) */}
+           
+            <div className="flex flex-col items-center flex-grow ">
+                <div className="h-48 w-full flex items-center justify-center relative mt-6">
                     <div className="absolute inset-0 bg-black/20"></div>
                     <img 
                         src={categoria.icone} 
                         alt="imagem do exercício" 
-                        className='max-w-full max-h-full object-cover' // Garante que a imagem cubra o espaço
+                        className='max-w-full max-h-full object-cover' 
                     />
                 </div>
 
-                {/* Descrição com faixa discreta */}
                 <div className='p-4 text-2xl text-center relative w-full'>
-                    {/* Faixa discreta atrás do texto */}
                     <div className="absolute inset-0 bg-black/30"></div>
                     
-                    {/* Texto com destaque */}
                     <span className='relative z-10 text-white font-bold'>
                         {categoria.descricao}
                     </span>
