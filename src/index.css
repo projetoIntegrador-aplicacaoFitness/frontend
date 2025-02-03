@@ -5,3 +5,12 @@
 body {
     @apply bg-black;
 }
+
+@theme {
+    --color-orange-200: #F5793B;
+    --color-orange-400: #f1580c;
+    --color-peach-200: #f79a6b;
+    --color-black-200: #0c0c0c;
+    --color-darkgray-400: #252525; 
+    --color-black-600: #000000; 
+  }
