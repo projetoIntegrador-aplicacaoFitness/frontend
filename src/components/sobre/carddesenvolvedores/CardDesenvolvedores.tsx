@@ -15,7 +15,7 @@ function CardDesenvolvedores({nome, foto, linkedin, github} : CardDesenvolvedore
           src={foto}
           alt={'Foto: '+nome}
         />
-        <div className='flex flex-col items-center justify-center mt-2'>
+        <div className='flex flex-col items-center justify-center mt-2 text-black-600'>
         <p>{nome}</p>
         </div>
         

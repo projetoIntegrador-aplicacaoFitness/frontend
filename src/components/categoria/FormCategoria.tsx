@@ -92,7 +92,7 @@ function FormCategoria() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto my-20">
+        <div className="container flex flex-col items-center justify-center mx-auto my-20 ">
             <h1 className="text-4xl text-center my-8  text-orange-400">
                 {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
             </h1>

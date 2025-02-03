@@ -8,14 +8,14 @@ import FormExercicio from '../formexercicio/FormExercicio';
 function ModalExercicio() {
     return (
         <>
-            <Popup
+            <Popup 
                 trigger={
                     <button 
                         className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800'>
                         Novo Exercício
                     </button>
                 }
-                modal
+                className='bg-black-600' modal
             >
                 <FormExercicio />
             </Popup>

@@ -15,7 +15,7 @@ function CardExercicio({ exercicio }: CardExercicioProps) {
           alt={"Foto: " + exercicio.nome}
         />
         <div className="flex flex-col items-center justify-center my-4">
-          <p>{"Exercício: "+exercicio.nome}</p>
+          <p className="text-black-200 font-semibold">{"Exercício: "+exercicio.nome}</p>
         </div>
 
         <div className="flex flex-row justify-around">

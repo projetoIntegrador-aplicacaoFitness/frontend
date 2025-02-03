@@ -10,6 +10,7 @@
   }
   body {
     @apply font-sunflower;
+    @apply bg-black-600 text-white;
   }
     .font-sunflower {
         font-family: "Brown Sunflower Sans", sans-serif;
