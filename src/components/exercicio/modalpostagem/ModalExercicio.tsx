@@ -11,7 +11,7 @@ function ModalExercicio() {
             <Popup
                 trigger={
                     <button 
-                        className='border rounded px-8 py-4 bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded'>
+                        className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold py-2 px-4 rounded'>
                         Novo Treino
                     </button>
                 }
