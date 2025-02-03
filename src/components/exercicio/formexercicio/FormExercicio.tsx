@@ -105,8 +105,9 @@ function FormExercicio() {
             Authorization: token,
           },
         });
-
+        navigate('/exercicios')
         alert("Exercício atualizado com sucesso");
+        
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
@@ -121,8 +122,9 @@ function FormExercicio() {
             Authorization: token,
           },
         });
-
+        navigate('/exercicios')
         alert("Exercício cadastrado com sucesso");
+        
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
@@ -141,8 +143,9 @@ function FormExercicio() {
       <h1 className="text-4xl text-center my-8">
         {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
       </h1>
-
+        
       <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovoExercicio}>
+      
         <div className="flex flex-col gap-2">
           <label htmlFor="nome">Nome do Exercício</label>
           <input
@@ -207,6 +210,7 @@ function FormExercicio() {
           )}
         </button>
       </form>
+      
     </div>
   );
 }

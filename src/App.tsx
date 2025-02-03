@@ -16,6 +16,7 @@ import ListaExercicios from "./components/exercicio/listaexercicios/ListaExercic
 import ListaCategoria from "./components/categoria/ListaCategoria";
 import FormCategoria from "./components/categoria/FormCategoria";
 import DeletarCategoria from "./components/categoria/DeletarCategoria";
+import DeletarExercicio from "./components/exercicio/deletarexercicio/DeletarExercicio";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/exercicios" element={<ListaExercicios />} />
               <Route path="/cadastrarexercicio" element={<FormExercicio />} />
               <Route path="/editarexercicio/:id" element={<FormExercicio />} />
+              <Route path="/deletarexercicio/:id" element={<DeletarExercicio />} />
               <Route path='/categorias' element={<ListaCategoria/>}/>
               <Route path='/cadastrarCategoria' element={<FormCategoria/>}/>
               <Route path="/editarCategoria/:id" element={<FormCategoria/>}/>
