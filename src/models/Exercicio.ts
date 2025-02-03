@@ -1,11 +1,12 @@
-import Tema from './Tema';
+
+import Treino from './Treino';
 import Usuario from './Usuario';
 
-export default interface Postagem {
+export default interface Exercicio {
   id: number;
   titulo: string;
   texto: string;
   data: string;
-  tema: Tema | null;
+  treino: Treino | null;  
   usuario: Usuario | null;
 }

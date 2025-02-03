@@ -1,10 +1,11 @@
 import Popup from 'reactjs-popup';
-import FormPostagem from '../formpostagem/FormPostagem';
 
 import 'reactjs-popup/dist/index.css';
-import './ModalPostagem.css'
+import './ModalExercicio.css';  
+import FormExercicio from '../formexercicio/FormExercicio';
 
-function ModalPostagem() {
+
+function ModalExercicio() {  
     return (
         <>
             <Popup
@@ -16,10 +17,10 @@ function ModalPostagem() {
                 }
                 modal
             >
-                <FormPostagem />
+                <FormExercicio/>  
             </Popup>
         </>
     );
 }
 
-export default ModalPostagem;
+export default ModalExercicio; 

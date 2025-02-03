@@ -35,7 +35,7 @@ function Navbar() {
             <Link to='/temas' className='font-bold hover:font-normal hover:text-pink'>
                 Temas
             </Link>
-            <Link to='/cadastrartema' className='font-bold hover:font-normal hover:text-pink'>
+            <Link to='/cadastrarexercicio' className='font-bold hover:font-normal hover:text-pink'>
                 Cadastrar tema
             </Link>
             <Link to='/perfil' className='font-bold hover:font-normal hover:text-pink'>
