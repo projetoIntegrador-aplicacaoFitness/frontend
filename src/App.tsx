@@ -11,6 +11,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Sobre from "./components/sobre/Sobre";
 import { ToastContainer } from "react-toastify";
 import Perfil from "./pages/perfil/Perfil";
+import CardExercicio from "./components/exercicio/cardexercicio/CardExercicio";
+import FormExercicio from "./components/exercicio/formexercicio/FormExercicio";
+import ListaExercicios from "./components/exercicio/listaexercicios/ListaExercicios";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/perfil" element={<Perfil />} />
               <Route path="/sobre" element={<Sobre />} />
+              <Route path="/exercicios" element={<ListaExercicios />} />
+              <Route path="/cadastrarexercicio" element={<FormExercicio />} />
+              <Route path="/editarexercicio/:id" element={<FormExercicio />} />
             </Routes>
           </div>
           <Footer />

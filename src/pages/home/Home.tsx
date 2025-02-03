@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ModalExercicio from "../../components/exercicio/modalpostagem/ModalExercicio";
-import ListaExercicio from "../../components/exercicio/listaexercicio/ListaExercicio";
+import ModalExercicio from "../../components/exercicio/modalexercicio/ModalExercicio";
+
 
 function Home() {
   const [hovered, setHovered] = useState(false);
@@ -29,7 +29,6 @@ function Home() {
         </main>
       </div>
 
-      <ListaExercicio />
     </>
   );
 }
