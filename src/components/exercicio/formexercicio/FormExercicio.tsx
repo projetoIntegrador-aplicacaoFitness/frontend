@@ -105,8 +105,9 @@ function FormExercicio() {
             Authorization: token,
           },
         });
-
+        navigate('/exercicios')
         alert("Exercício atualizado com sucesso");
+        
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
@@ -121,8 +122,9 @@ function FormExercicio() {
             Authorization: token,
           },
         });
-
+        navigate('/exercicios')
         alert("Exercício cadastrado com sucesso");
+        
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
@@ -137,20 +139,21 @@ function FormExercicio() {
 
   return (
 
-    <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8">
+    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-black-600 ">
+      <h1 className="text-4xl text-center my-8 text-orange-400">
         {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
       </h1>
-
-      <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovoExercicio}>
-        <div className="flex flex-col gap-2">
+        
+      <form className="flex flex-col w-1/2 gap-4 " onSubmit={gerarNovoExercicio}>
+      
+        <div className="flex flex-col gap-2 ">
           <label htmlFor="nome">Nome do Exercício</label>
           <input
             type="text"
             placeholder="Insira o nome do Exercício"
             name="nome"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-400 rounded p-2 text-black-200"
             value={exercicio.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -162,7 +165,7 @@ function FormExercicio() {
             placeholder="Insira um link com uma imagem do Exercício"
             name="foto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-400 rounded p-2 text-black-200"
             value={exercicio.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -174,23 +177,23 @@ function FormExercicio() {
           <select
             name="categoria"
             id="categoria"
-            className="border p-2 border-slate-800 rounded"
+            className="border p-2 border-orange-400 rounded text-black-200"
             onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
           >
-            <option value="" selected disabled>
+            <option value="" selected disabled className="text-gray-400">
               Selecione uma Categoria
             </option>
 
             {categorias.map((categoria) => (
               <>
-                <option value={categoria.id}>{categoria.descricao}</option>
+                <option className="text-black-200" value={categoria.id}>{categoria.descricao}</option>
               </>
             ))}
           </select>
         </div>
         <button
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800
+          className="rounded disabled:bg-slate-200 bg-orange-200 hover:bg-orange-400
                                text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
           disabled={carregandoCategoria}
         >
