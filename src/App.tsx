@@ -10,10 +10,10 @@ import ListaExercicios from './components/exercicio/listaexercicio/ListaExercici
 import FormExercicio from './components/exercicio/formexercicio/FormExercicio'; 
 import DeletarExercicio from './components/exercicio/deletarexercicio/DeletarExercicio'; 
 
-import Perfil from './pages/perfil/Perfil';
+import 'react-toastify/dist/ReactToastify.css'
+import Sobre from './components/sobre/Sobre'
 import { ToastContainer } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.css';
+import Perfil from './pages/perfil/Perfil';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
               <Route path="/editarexercicio/:id" element={<FormExercicio />} />
               <Route path="/deletarexercicio/:id" element={<DeletarExercicio />} />
               <Route path="/perfil" element={<Perfil />} />
+              <Route path="/sobre" element={<Sobre />} />
             </Routes>
           </div>
           <Footer />

@@ -39,7 +39,7 @@ function Login() {
                     h-screen place-items-center font-bold bg-[url(https://ik.imagekit.io/ix39wusls/Imagens%20PI%20Fitness/gymHD?updatedAt=1738333000089)]  bg-cover"
       >
         <form
-          className="flex justify-center items-center flex-col w-1/2 gap-4 bg-black p-8 rounded-2xl text-yellow-500"
+          className="flex justify-center items-center flex-col w- gap-4 bg-black p-8 rounded-2xl text-yellow-500 shadow-2xl w-auto"
           onSubmit={login}
         >
           <h2 className="text-yellow-500 text-5xl ">Bem-vindo</h2>
@@ -51,7 +51,7 @@ function Login() {
               id="usuario"
               name="usuario"
               placeholder="Usuario"
-              className="border-2 border-yellow-500 rounded p-2"
+              className="border-2 border-yellow-500 rounded p-2 text-black"
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -90,7 +90,7 @@ function Login() {
             )}
           </button>
 
-          <hr className="border-slate-800 w-full" />
+          <hr className="border-white  w-full" />
 
           <p>
             Ainda não tem uma conta?{" "}
