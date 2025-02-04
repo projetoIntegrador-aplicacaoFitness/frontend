@@ -63,7 +63,7 @@ function FormExercicio() {
 
   useEffect(() => {
     if (token === "") {
-      ToastAlerta("Você precisa estar logado",'info');
+      ToastAlerta("Você precisa estar logado!",'info');
       navigate("/");
     }
   }, [token]);
@@ -113,7 +113,7 @@ function FormExercicio() {
         if (error.toString().includes("403")) {
           handleLogout();
         } else {
-          ToastAlerta("Erro ao atualizar Exercício",'erro');
+          ToastAlerta("Erro ao atualizar exercício",'erro');
         }
       }
     } else {
@@ -130,7 +130,7 @@ function FormExercicio() {
         if (error.toString().includes("403")) {
           handleLogout();
         } else {
-          ToastAlerta("Erro ao cadastrar Exercício",'erro');
+          ToastAlerta("Erro ao cadastrar exercício",'erro');
         }
       }
     }
@@ -139,9 +139,16 @@ function FormExercicio() {
   const carregandoCategoria = categoria.descricao === "";
 
   return (
-
-    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-black-600 ">
-      <h1 className="text-4xl text-center my-8 text-orange-400">
+  <>
+  <div
+        className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+        }}
+      >
+    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 ">
+      <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
         {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
       </h1>
         
@@ -193,11 +200,11 @@ function FormExercicio() {
           </select>
         </div>
         <button
-          type="submit"
-          className="rounded disabled:bg-slate-200 bg-orange-200 hover:bg-orange-400
-                               text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
-          disabled={carregandoCategoria}
-        >
+              type="submit"
+              className="rounded text-white bg-yellow-700 
+                           hover:bg-yellow-500 w-1/2 py-2
+                           flex justify-center"
+            >
           {isLoading ? (
             <RotatingLines
               strokeColor="white"
@@ -212,6 +219,8 @@ function FormExercicio() {
         </button>
       </form>
     </div>
+  </div>
+  </>
   );
 }
 

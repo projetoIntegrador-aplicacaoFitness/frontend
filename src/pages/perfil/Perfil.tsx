@@ -69,7 +69,21 @@ function Perfil() {
   };
 
   return (
+    <>
+    <div
+        className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+        }}
+    >
+    
+    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 ">
+
     <div className="container mx-auto mt-8 p-4 rounded-lg shadow-lg bg-white max-w-md" style={{ backgroundColor: 'var(--color-peach-200)' }}>
+        <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+          Perfil
+        </h1>
       <div className="flex flex-col items-center">
         <img
           className="rounded-md w-40 h-40 object-cover border-4 border-white mb-4"
@@ -124,6 +138,9 @@ function Perfil() {
         </div>
       </div>
     </div>
+    </div>
+    </div>
+    </>
   );
 }
 

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ModalExercicio from "../../components/exercicio/modalexercicio/ModalExercicio";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -35,8 +34,6 @@ function Home() {
               </p>
               <div className= "flex justify-around gap-4">
               <Link className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold py-2 px-4 rounded' to="/cadastrar-treino">Novo Treino</Link>             
-
-              
               </div>
             </div>
           </div>
