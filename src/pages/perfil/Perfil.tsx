@@ -78,9 +78,9 @@ function Perfil() {
         }}
     >
     
-    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 ">
+    <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
 
-    <div className="container mx-auto mt-8 p-4 rounded-lg shadow-lg bg-white max-w-md" style={{ backgroundColor: 'var(--color-peach-200)' }}>
+    <div className="container mx-auto p-2 rounded-lg shadow-lg bg-white max-w-md" style={{ backgroundColor: 'var(--color-peach-200)' }}>
         <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
           Perfil
         </h1>
@@ -128,10 +128,10 @@ function Perfil() {
           <div className="mt-4 text-center">
             <p className="font-bold">Tabela de IMC (Índice de Massa Corporal) para adultos:</p>
             <ul className="list-disc pl-5 text-left">
-              <li>IMC entre 18,5 e 24,9: peso normal</li>
-              <li>IMC entre 25 e 29,9: sobrepeso</li>
-              <li>IMC entre 30 e 34,9: obesidade grau I</li>
-              <li>IMC entre 35 e 39,9: obesidade grau II</li>
+              <li>IMC entre 18.5 e 24.9: peso normal</li>
+              <li>IMC entre 25 e 29.9: sobrepeso</li>
+              <li>IMC entre 30 e 34.9: obesidade grau I</li>
+              <li>IMC entre 35 e 39.9: obesidade grau II</li>
               <li>IMC maior que 40: obesidade grau III</li>
             </ul>
           </div>

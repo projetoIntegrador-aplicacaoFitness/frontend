@@ -43,7 +43,7 @@ function Login() {
           onSubmit={login}
         >
           <h2 className="text-yellow-500 text-5xl ">Bem-vindo</h2>
-          <p>Seu Treino te aguarda!</p>
+          <p>Seu treino te aguarda!</p>
           <div className="flex flex-col w-full">
             <label htmlFor="usuario">Usuário</label>
             <input

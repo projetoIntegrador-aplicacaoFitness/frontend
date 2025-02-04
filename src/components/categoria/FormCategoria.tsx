@@ -93,7 +93,7 @@ function FormCategoria() {
     }
 
     return (
-
+    <>
         <div
             className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
             style={{
@@ -102,7 +102,7 @@ function FormCategoria() {
             }}
         >
 
-            <div className="container flex flex-col items-center justify-center mx-auto my-20  w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+            <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
                 <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
                     {id === undefined ? 'Cadastrar Treino' : 'Editar Treino'}
                 </h1>
@@ -112,7 +112,7 @@ function FormCategoria() {
                         <label htmlFor="descricao">Descrição do Treino</label>
                         <input
                             type="text"
-                            placeholder="Exemplo Superiores, Inferiores, Costa, Perna.."
+                            placeholder="Exemplo Superiores, Inferiores, Costa, Perna..."
                             name='descricao'
                             className="border-2 border-slate-700 rounded p-2  text-slate-700"
                             value={categoria.descricao}
@@ -152,6 +152,7 @@ function FormCategoria() {
                 </form>
             </div>
         </div>
+    </>
     );
 }
 

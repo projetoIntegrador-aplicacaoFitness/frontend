@@ -51,6 +51,12 @@ function ListaCategoria() {
                         "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
                 }}
             >
+            <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+                <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+                Treinos
+                </h1>
+            </div>
+
                 {categorias.length === 0 && (
                     <DNA
                         visible={true}
@@ -61,8 +67,6 @@ function ListaCategoria() {
                         wrapperClass="dna-wrapper mx-auto"
                     />
                 )}
-                <span className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">Ver Treinos</span>
-
 
 
                 <div className="flex justify-center w-full my-4">
