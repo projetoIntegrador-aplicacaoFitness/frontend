@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 function Perfil() {
   const navigate = useNavigate();
@@ -13,13 +14,13 @@ function Perfil() {
 
   useEffect(() => {
     if (!usuario?.token) {
-      alert('Você precisa estar logado!');
+      ToastAlerta('Você precisa estar logado!','info');
       navigate("/");
     }
   }, [usuario?.token, navigate]);
 
   useEffect(() => {
-    const calcularIMC = () => {
+    function calcularIMC() {
       const pesoNum = parseFloat(peso);
       const alturaNum = parseFloat(altura);
 
@@ -45,7 +46,7 @@ function Perfil() {
         setImc('');
         setNivelSaude('');
       }
-    };
+    }
 
     calcularIMC();
   }, [peso, altura]);

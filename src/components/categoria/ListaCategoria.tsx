@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import Categoria from "../../models/Categoria";
 import CardCategoria from "./CardCategoria";
 import { buscar } from "../../services/Service";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function ListaCategoria() {
 
@@ -29,14 +30,14 @@ function ListaCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!','info')
             navigate('/')
         }
     }, [token])
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!','info')
             navigate('/')
             return;
         }

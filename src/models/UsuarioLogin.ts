@@ -1,4 +1,5 @@
 export default interface UsuarioLogin {
+    imc: string;
     id: number;
     nome: string;
     usuario: string;
