@@ -139,89 +139,92 @@ function FormExercicio() {
   const carregandoCategoria = categoria.descricao === "";
 
   return (
-  <>
-  <div
+    <>
+      <div
         className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
         }}
       >
-    <div className="w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 ">
-      <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
-        {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
-      </h1>
-        
-      <form className="flex flex-col w-1/2 gap-4 " onSubmit={gerarNovoExercicio}>
-      
-        <div className="flex flex-col gap-2 ">
-          <label htmlFor="nome">Nome do Exercício</label>
-          <input
-            type="text"
-            placeholder="Insira o nome do Exercício"
-            name="nome"
-            required
-            className="border-2 border-orange-400 rounded p-2 text-black-200"
-            value={exercicio.nome}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="foto">Imagem do Exercício</label>
-          <input
-            type="text"
-            placeholder="Insira um link com uma imagem do Exercício"
-            name="foto"
-            required
-            className="border-2 border-orange-400 rounded p-2 text-black-200"
-            value={exercicio.foto}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
-        </div>
-        
+        <div className="flex justify-center items-center min-h-screen">
+          <div className="w-full max-w-lg p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-black-600 opacity-75">
+            <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+              {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
+            </h1>
+            
+            <form className="flex flex-col w-full gap-4" onSubmit={gerarNovoExercicio}>
+              
+              <div className="flex flex-col gap-2">
+                <label htmlFor="nome">Nome do Exercício</label>
+                <input
+                  type="text"
+                  placeholder="Insira o nome do Exercício"
+                  name="nome"
+                  required
+                  className="border-2 border-orange-400 rounded p-2 text-black-200"
+                  value={exercicio.nome}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                />
+              </div>
 
-        <div className="flex flex-col gap-2">
-          <p>Categoria do Exercício</p>
-          <select
-            name="categoria"
-            id="categoria"
-            className="border p-2 border-orange-400 rounded text-black-200"
-            onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
-          >
-            <option value="" selected disabled className="text-gray-400">
-              Selecione uma Categoria
-            </option>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="foto">Imagem do Exercício</label>
+                <input
+                  type="text"
+                  placeholder="Insira um link com uma imagem do Exercício"
+                  name="foto"
+                  required
+                  className="border-2 border-orange-400 rounded p-2 text-black-200"
+                  value={exercicio.foto}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                />
+              </div>
 
-            {categorias.map((categoria) => (
-              <>
-                <option className="text-black-200" value={categoria.id}>{categoria.descricao}</option>
-              </>
-            ))}
-          </select>
+              <div className="flex flex-col gap-2">
+                <p>Treino para o Exercício</p>
+                <select
+                  name="categoria"
+                  id="categoria"
+                  className="border p-2 border-orange-400 rounded text-black-200"
+                  onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+                >
+                  <option value="" selected disabled className="text-gray-400">
+                    Selecione um Treino
+                  </option>
+                  {categorias.map((categoria) => (
+                    <option key={categoria.id} className="text-black-200" value={categoria.id}>
+                      {categoria.descricao}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="rounded text-white bg-yellow-700 hover:bg-yellow-500 w-1/2 py-2 flex justify-center"
+                >
+                  {isLoading ? (
+                    <RotatingLines
+                      strokeColor="white"
+                      strokeWidth="5"
+                      animationDuration="0.75"
+                      width="24"
+                      visible={true}
+                    />
+                  ) : (
+                    <span>{id !== undefined ? "Atualizar" : "Cadastrar exercicio"}</span>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <button
-              type="submit"
-              className="rounded text-white bg-yellow-700 
-                           hover:bg-yellow-500 w-1/2 py-2
-                           flex justify-center"
-            >
-          {isLoading ? (
-            <RotatingLines
-              strokeColor="white"
-              strokeWidth="5"
-              animationDuration="0.75"
-              width="24"
-              visible={true}
-            />
-          ) : (
-            <span>{id !== undefined ? "Atualizar" : "Cadastrar"}</span>
-          )}
-        </button>
-      </form>
-    </div>
-  </div>
-  </>
+      </div>
+    </>
   );
 }
 
 export default FormExercicio;
+
