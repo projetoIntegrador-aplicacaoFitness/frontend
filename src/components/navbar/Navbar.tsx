@@ -94,7 +94,7 @@ function Navbar() {
                         </div>
 
                         <button onClick={logout} className="absolute bottom-4 left-4 text-white hover:text-orange-400">
-                            Logout
+                            Sair
                         </button>
                     </div>
                 </nav>
