@@ -49,12 +49,13 @@ function ListaExercicios() {
             "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
         }}
       >
-      
-      <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
-        <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
-          Exercícios
-        </h1>
-      </div>
+        <div className="py-16">
+          <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+            <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+              Exercícios
+            </h1>
+          </div>
+        </div>
 
         {exercicios.length === 0 && (
           <DNA
@@ -74,7 +75,7 @@ function ListaExercicios() {
             <CardExercicio key={exercicio.id} exercicio={exercicio} />
           ))}
         </div>
-        </div>
+      </div>
     </>
   );
 }

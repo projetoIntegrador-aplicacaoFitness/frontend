@@ -1,10 +1,10 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import Categoria from "../../models/Categoria";
-import { atualizar, buscar, cadastrar } from "../../services/Service";
-import { ToastAlerta } from "../../utils/ToastAlerta";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Categoria from "../../../models/Categoria";
+import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormCategoria() {
 
@@ -95,7 +95,7 @@ function FormCategoria() {
     return (
     <>
         <div
-            className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+            className="relative w-full min-h-screen bg-fixed bg-cover bg-center "
             style={{
                 backgroundImage:
                     "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",

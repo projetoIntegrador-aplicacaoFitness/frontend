@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Categoria from '../../models/Categoria'
+import Categoria from '../../../models/Categoria'
 import { GiStrongMan } from 'react-icons/gi';
 
 interface CardCategoriaProps {

@@ -19,8 +19,8 @@ function Cadastro() {
     usuario: "",
     senha: "",
     foto: "",
-    peso: 0,
-    altura: 0,
+    peso: undefined,
+    altura: undefined,
   });
 
  
@@ -71,13 +71,13 @@ function Cadastro() {
   return (
     <>
       <div
-        className="container h-screen 
+        className="w-full h-screen 
             place-items-center font-bold bg-[url(https://www.fecomercio.com.br/upload/img/2017/04/18/58f60e8c80d6b-noticia_hotel_com_academia_atrai_mais_h_spedes_corporativos.jpg)] bg-cover"
       >
         <div className="grid grid-cols-2"></div>
         <div className="flex flex-row"></div>
         <form
-          className="flex justify-center items-center flex-col gap-3 p-8 bg-black-600 rounded-2xl text-yellow-500 mt-8 w-auto"
+          className="my-8 flex justify-center items-center flex-col gap-3 p-8 bg-black-600 rounded-2xl text-yellow-500 mt-8 w-auto"
           onSubmit={cadastrarNovoUsuario}
         >
           <h2 className="text-yellow-500 text-5xl">Cadastrar</h2>
@@ -105,13 +105,14 @@ function Cadastro() {
                 placeholder="Peso"
                 className="border-2 border-yellow-500 rounded p-2"
                 value={usuario.peso}
+                min={0}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
                 }
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="altura">Altura</label>
+              <label htmlFor="altura">Altura (cm)</label>
               <input
                 type="number"
                 id="altura"
@@ -119,6 +120,7 @@ function Cadastro() {
                 placeholder="Informe sua altura"
                 className="border-2 border-yellow-500 rounded p-2"
                 value={usuario.altura}
+                min={0}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
                 }

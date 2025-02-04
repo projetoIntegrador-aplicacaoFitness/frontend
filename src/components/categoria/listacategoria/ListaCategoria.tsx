@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { DNA } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import Categoria from "../../models/Categoria";
-import CardCategoria from "./CardCategoria";
-import { buscar } from "../../services/Service";
-import { ToastAlerta } from "../../utils/ToastAlerta";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Categoria from "../../../models/Categoria";
+import CardCategoria from "../cardcategoria/CardCategoria";
+import { buscar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaCategoria() {
 
@@ -51,11 +51,14 @@ function ListaCategoria() {
                         "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
                 }}
             >
-            <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
-                <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
-                Treinos
-                </h1>
-            </div>
+                <div className="py-16">
+                    <div className="  w-full max-w-lg px-4 py-2  rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800 ">
+                        <h1 className=" text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500 ">
+                            Treinos
+                        </h1>
+                    </div>
+                </div>
+
 
                 {categorias.length === 0 && (
                     <DNA
@@ -79,7 +82,7 @@ function ListaCategoria() {
                     </div>
                 </div>
                 <div className="flex justify-center p-4 space-x-4">
-                    <Link className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold py-2 px-4 rounded' to="/cadastrar-treino">
+                    <Link className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold ' to="/cadastrar-treino">
                         Novo Treino
                     </Link>
                 </div>
