@@ -20,7 +20,7 @@ function DeletarCategoria() {
 
     async function buscarPorId(id: string) {
         try {
-            await buscar(`/categoria/${id}`, setCategoria, {
+            await buscar(`/categorias/${id}`, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
@@ -49,19 +49,19 @@ function DeletarCategoria() {
         setIsLoading(true)
 
         try {
-            await deletar(`/categoria/${id}`, {
+            await deletar(`/categorias/${id}`, {
                 headers: {
                     'Authorization': token
                 }
             })
 
-            ToastAlerta('Categoria apagado com sucesso','sucesso')
+            ToastAlerta('Treino apagado com sucesso','sucesso')
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout()
             }else {
-                ToastAlerta('Erro ao deletar a categoria.','erro')
+                ToastAlerta('Erro ao deletar Treino.','erro')
             }
         }
 
@@ -70,14 +70,14 @@ function DeletarCategoria() {
     }
 
     function retornar() {
-        navigate("/categoria")
+        navigate("/treino")
     }
     
     return (
         <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar categoria</h1>
+            <h1 className='text-4xl text-center my-4'>Deletar Treino</h1>
             <p className='text-center font-semibold mb-4'>
-                Você tem certeza de que deseja apagar a categoria a seguir?</p>
+                Você tem certeza de que deseja apagar o Treino a seguir?</p>
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
                 <header 
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
