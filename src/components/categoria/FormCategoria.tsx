@@ -32,7 +32,7 @@ function FormCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            ToastAlerta('Você precisa estar logado!','info')
+            ToastAlerta('Você precisa estar logado!', 'info')
             navigate('/')
         }
     }, [token])
@@ -63,12 +63,12 @@ function FormCategoria() {
                 await atualizar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta('O Treino foi atualizada com sucesso!','sucesso')
+                ToastAlerta('O Treino foi atualizada com sucesso!', 'sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta('Erro ao atualizar o Treino.','erro')
+                    ToastAlerta('Erro ao atualizar o Treino.', 'erro')
                 }
 
             }
@@ -77,12 +77,12 @@ function FormCategoria() {
                 await cadastrar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta('O treino foi cadastrado com sucesso!','sucesso')
+                ToastAlerta('O treino foi cadastrado com sucesso!', 'sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta('Erro ao cadastrar o treino.','erro')
+                    ToastAlerta('Erro ao cadastrar o treino.', 'erro')
                 }
 
             }
@@ -93,55 +93,64 @@ function FormCategoria() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto my-20 ">
-            <h1 className="text-4xl text-center my-8  text-orange-400">
-                {id === undefined ? 'Cadastrar Treino' : 'Editar Treino'}
-            </h1>
 
-            <form className="w-1/2 flex flex-col gap-4 font-sans text-white  text-lg my-4" onSubmit={gerarNovaCategoria}>
-                <div className="flex flex-col gap-2 ">
-                    <label htmlFor="descricao">Descrição do Treino</label>
-                    <input
-                        type="text"
-                        placeholder="Exemplo Superiores, Inferiores, Costa, Perna.."
-                        name='descricao'
-                        className="border-2 border-slate-700 rounded p-2  text-slate-700"
-                        value={categoria.descricao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+        <div
+            className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+            style={{
+                backgroundImage:
+                    "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+            }}
+        >
 
-                    />
-                </div>
-                <div className="flex flex-col gap-2 my-4">
-                    <label htmlFor="icone">Ícone do Treino</label>
-                    <input
-                        type="text"
-                        placeholder="Insira o Link com o Ícone do Treino"
-                        name='icone'
-                        className="border-2 border-slate-700 rounded p-2 text-slate-700 "
-                        value={categoria.icone}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        
-                    />
-                </div>
-                <button
-                    className="rounded text-slate-100 font-medium text-2xl bg-orange-400
-                               hover:bg-orange-600  w-1/2 py-2 mx-auto flex 
-                               justify-center my-4 transition-all duration-300 ease-in-out
-                                hover:scale-105"
-                    type="submit">
-                    {isLoading ?
-                        <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
-                        /> :
-                        <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
+            <div className="container flex flex-col items-center justify-center mx-auto my-20  w-full max-w-lg  p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+                <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+                    {id === undefined ? 'Cadastrar Treino' : 'Editar Treino'}
+                </h1>
 
-                    }
-                </button>
-            </form>
+                <form className="w-1/2 flex flex-col gap-4 font-sans text-white  text-lg my-4" onSubmit={gerarNovaCategoria}>
+                    <div className="flex flex-col gap-2 ">
+                        <label htmlFor="descricao">Descrição do Treino</label>
+                        <input
+                            type="text"
+                            placeholder="Exemplo Superiores, Inferiores, Costa, Perna.."
+                            name='descricao'
+                            className="border-2 border-slate-700 rounded p-2  text-slate-700"
+                            value={categoria.descricao}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2 my-4">
+                        <label htmlFor="icone">Ícone do Treino</label>
+                        <input
+                            type="text"
+                            placeholder="Insira o Link com o Ícone do Treino"
+                            name='icone'
+                            className="border-2 border-slate-700 rounded p-2 text-slate-700 "
+                            value={categoria.icone}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+
+                        />
+                    </div>
+                    <button
+                        className="rounded text-white bg-yellow-700
+                           hover:bg-yellow-500 w-1/2 py-2
+                           flex justify-center"
+                        type="submit">
+                        {isLoading ?
+                            <RotatingLines
+                                strokeColor="white"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="24"
+                                visible={true}
+                            /> :
+                            <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
+
+                        }
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

@@ -74,6 +74,14 @@ function DeletarCategoria() {
     }
     
     return (
+
+        <div
+                className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+                style={{
+                    backgroundImage:
+                        "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+                }}
+            >
         <div className='container w-1/3 mx-auto'>
             <h1 className='text-4xl text-center my-4'>Deletar Treino</h1>
             <p className='text-center font-semibold mb-4'>
@@ -107,6 +115,7 @@ function DeletarCategoria() {
                     </button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
