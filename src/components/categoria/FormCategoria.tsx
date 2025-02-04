@@ -77,12 +77,12 @@ function FormCategoria() {
                 await cadastrar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta('O Treino foi cadastrado com sucesso!','sucesso')
+                ToastAlerta('O treino foi cadastrado com sucesso!','sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta('Erro ao cadastrar o Treino.','erro')
+                    ToastAlerta('Erro ao cadastrar o treino.','erro')
                 }
 
             }
@@ -112,7 +112,7 @@ function FormCategoria() {
                     />
                 </div>
                 <div className="flex flex-col gap-2 my-4">
-                    <label htmlFor="icone">Ícone da Treino</label>
+                    <label htmlFor="icone">Ícone do Treino</label>
                     <input
                         type="text"
                         placeholder="Insira o Link com o Ícone do Treino"
