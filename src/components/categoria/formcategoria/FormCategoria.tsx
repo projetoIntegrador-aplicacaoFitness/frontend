@@ -91,16 +91,6 @@ function FormCategoria() {
     }
 
     return (
-<<<<<<< HEAD:src/components/categoria/formcategoria/FormCategoria.tsx
-    <>
-        <div
-            className="relative w-full min-h-screen bg-fixed bg-cover bg-center "
-            style={{
-                backgroundImage:
-                    "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
-            }}
-        >
-=======
         <>
             <div
                 className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
@@ -114,7 +104,6 @@ function FormCategoria() {
                         <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
                             {id === undefined ? "Cadastrar Treino" : "Editar Treino"}
                         </h1>
->>>>>>> 68cc659045e78f0adfb6dc9edfdd13536567238e:src/components/categoria/FormCategoria.tsx
 
                         <form
                             className="w-full flex flex-col gap-4 font-sans text-white text-lg my-4"
