@@ -51,7 +51,7 @@ function FormCategoria() {
     }
 
     function retornar() {
-        navigate("/categorias")
+        navigate("/treino")
     }
 
     async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
@@ -63,12 +63,12 @@ function FormCategoria() {
                 await atualizar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta('A categoria foi atualizada com sucesso!','sucesso')
+                ToastAlerta('O Treino foi atualizada com sucesso!','sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta('Erro ao atualizar a categoria.','erro')
+                    ToastAlerta('Erro ao atualizar o Treino.','erro')
                 }
 
             }
@@ -77,12 +77,12 @@ function FormCategoria() {
                 await cadastrar(`/categorias`, categoria, setCategoria, {
                     headers: { 'Authorization': token }
                 })
-                ToastAlerta('A categoria foi cadastrado com sucesso!','sucesso')
+                ToastAlerta('O Treino foi cadastrado com sucesso!','sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    ToastAlerta('Erro ao cadastrar a categoria.','erro')
+                    ToastAlerta('Erro ao cadastrar o Treino.','erro')
                 }
 
             }
@@ -95,15 +95,15 @@ function FormCategoria() {
     return (
         <div className="container flex flex-col items-center justify-center mx-auto my-20 ">
             <h1 className="text-4xl text-center my-8  text-orange-400">
-                {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
+                {id === undefined ? 'Cadastrar Treino' : 'Editar Treino'}
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4 font-sans text-white  text-lg my-4" onSubmit={gerarNovaCategoria}>
                 <div className="flex flex-col gap-2 ">
-                    <label htmlFor="descricao">Descrição da Categoria</label>
+                    <label htmlFor="descricao">Descrição do Treino</label>
                     <input
                         type="text"
-                        placeholder="Descreva aqui sua categoria"
+                        placeholder="Exemplo Superiores, Inferiores, Costa, Perna.."
                         name='descricao'
                         className="border-2 border-slate-700 rounded p-2  text-slate-700"
                         value={categoria.descricao}
@@ -112,10 +112,10 @@ function FormCategoria() {
                     />
                 </div>
                 <div className="flex flex-col gap-2 my-4">
-                    <label htmlFor="icone">Ícone da Categoria</label>
+                    <label htmlFor="icone">Ícone da Treino</label>
                     <input
                         type="text"
-                        placeholder="Insira o Link com o Ícone da Categoria"
+                        placeholder="Insira o Link com o Ícone do Treino"
                         name='icone'
                         className="border-2 border-slate-700 rounded p-2 text-slate-700 "
                         value={categoria.icone}

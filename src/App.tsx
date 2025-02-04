@@ -34,11 +34,11 @@ function App() {
               <Route path="/perfil" element={<Perfil />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/exercicios" element={<ListaExercicios />} />
-              <Route path="/cadastrarexercicio" element={<FormExercicio />} />
+              <Route path="/cadastrar-exercicio" element={<FormExercicio />} />
               <Route path="/editarexercicio/:id" element={<FormExercicio />} />
               <Route path="/deletarexercicio/:id" element={<DeletarExercicio />} />
-              <Route path='/categorias' element={<ListaCategoria/>}/>
-              <Route path='/cadastrarCategoria' element={<FormCategoria/>}/>
+              <Route path='/treino' element={<ListaCategoria/>}/>
+              <Route path='/cadastrar-treino' element={<FormCategoria/>}/>
               <Route path="/editarCategoria/:id" element={<FormCategoria/>}/>
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria/>}/>
             </Routes>
