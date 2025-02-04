@@ -94,8 +94,8 @@ function Perfil() {
           <h2 className="text-2xl font-bold mb-2">{usuario?.nome}</h2>
           <p className="mb-1">Email: {usuario?.usuario}</p>
           <div className="flex items-center justify-center">
-            <div className="mr-4">
-              <label htmlFor="peso" className="block">Peso (kg):</label>
+            <div className="mr-4 text-black-200">
+              <label htmlFor="peso" className="text-white block">Peso (kg):</label>
               <input
                 type="number"
                 id="peso"
@@ -103,10 +103,11 @@ function Perfil() {
                 value={peso}
                 onChange={(e) => setPeso(e.target.value)}
                 style={{ color: 'var(--color-black-200)' }}
+                min="0"
               />
             </div>
-            <div>
-              <label htmlFor="altura" className="block">Altura (cm):</label>
+            <div className="text-black-200">
+              <label htmlFor="altura" className="text-white block">Altura (cm):</label>
               <input
                 type="number"
                 id="altura"
@@ -114,6 +115,7 @@ function Perfil() {
                 value={altura}
                 onChange={(e) => setAltura(e.target.value)}
                 style={{ color: 'var(--color-black-200)' }}
+                min="0"
               />
             </div>
           </div>
