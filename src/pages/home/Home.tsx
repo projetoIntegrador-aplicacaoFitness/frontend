@@ -25,7 +25,7 @@ function Home() {
                 />
               </div>
               <h2 className="text-5xl font-bold text-yellow-400 drop-shadow-md text-center mt-2 shadow-lg">
-                Cardanis, o seu aplicativo fitness!
+                Cardanis Fit, o seu aplicativo fitness!
               </h2>
             </div>
             <div className="flex flex-col gap-4 items-center justify-center py-4">

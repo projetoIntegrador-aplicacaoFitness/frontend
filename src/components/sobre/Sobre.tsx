@@ -9,7 +9,7 @@ function Sobre() {
         <div className="bg-yellow-500 w-full mt-16 grid md:grid-cols-2 sm:grid-cols-1 text-center">
           <div className="flex md:flex-row flex-col items-center justify-center my-8 mx-4 ">
             <h2 className="p-8 text-5xl sm:text-4xl font-mono font-thin rounded-2xl">
-              Cardanis Fitness
+              Cardanis Fit
             </h2>
             <ul className="text-start text-4xl sm:text-3xl">
               <li>| Saúde</li>
@@ -26,7 +26,7 @@ function Sobre() {
           </div>
         </div>
         <div className="bg-white mt-8 px-8 rounded-xl">
-          <h2 className="text-4xl font-thin font-mono text-black-600">Sobre Cardanis Fit</h2>
+          <h2 className="text-4xl font-thin font-mono text-black-600">Sobre a Cardanis Fit</h2>
         </div>
         <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4 mt-8 w-full bg-yellow-500 py-8 ">
           <div className="flex flex-col items-center p-4 bg-white rounded-2xl gap-4 shadow-2xl scale-95 hover:scale-105">
@@ -34,7 +34,7 @@ function Sobre() {
               Missão
             </h2>
             <p className="text-center m-4 text-black-200">
-              A Cardanis Fitness nasceu para tornar a atividade física
+              A Cardanis Fit© nasceu para tornar a atividade física
               acessível, acolhedora e livre de preconceitos. Nossa missão é
               incentivar o bem-estar acima de padrões estéticos, oferecendo uma
               experiência fitness inclusiva para todas as pessoas,
@@ -50,12 +50,12 @@ function Sobre() {
               História
             </h2>
             <p className="text-center m-4 text-black-200">
-              O time7 recebeu um grande desafio: desenvolver um aplicativo
+              O Time7 recebeu um grande desafio: desenvolver um aplicativo
               fitness inclusivo em poucos dias. Com prazos apertados, bugs
-              inesperados e noites mal dormidas, a equipe precisou de muita
+              inesperados e noites maldormidas, a equipe precisou de muita
               criatividade e colaboração para superar os obstáculos. Apesar das
               dificuldades, a determinação do time falou mais alto. O resultado?
-              Cardanis Fitness, uma plataforma acessível e acolhedora, feita
+              Cardanis Fit©, uma plataforma acessível e acolhedora, feita
               para todas as pessoas, sem padrões ou exclusões. O que começou
               como um desafio tornou-se um movimento de inclusão e bem-estar.
             </p>
@@ -79,12 +79,12 @@ function Sobre() {
 
         <div className="flex flex-col justify-center items-center gap-8">
           <h2 className="bg-white mt-8 px-8 rounded-xl text-4xl font-thin font-mono text-black-600">
-            Por que escolher Cardanis?
+            Por que escolher a Cardanis Fit?
           </h2>
           <div className="bg-yellow-500 grid grid-cols-1 sm:w-2/3 md:w-1/3 rounded-xl py-4">
             <div className="flex flex-col justify-center items-center">
               <p className="m-4 font-semibold text-center">
-                 A Cardanis Fitness é mais
+                A Cardanis Fit© é mais
                 do que um simples aplicativo de exercícios. É um espaço
                 inclusivo, acolhedor e sem preconceitos, onde você pode se mover
                 no seu ritmo, sem pressões ou padrões irreais. Nós acreditamos
@@ -103,7 +103,7 @@ function Sobre() {
         </div>
         <div className="bg-white mt-8 px- rounded-xl">
           <h2 className="bg-white  px-8 rounded-xl text-4xl font-thin font-mono text-black-600">
-            Time7
+            Este site foi desenvolvido por: Time7
           </h2>
         </div>
         <div className="grid md:grid-cols-5 sm:grid-cols-1 gap-8 my-8">
