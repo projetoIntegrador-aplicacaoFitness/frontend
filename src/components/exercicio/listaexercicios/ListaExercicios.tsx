@@ -31,7 +31,7 @@ function ListaExercicios() {
 
   useEffect(() => {
     if (token === "") {
-      ToastAlerta("Você precisa estar logado",'info');
+      ToastAlerta("Você precisa estar logado", 'info');
       navigate("/");
     }
   }, [token]);
@@ -42,24 +42,42 @@ function ListaExercicios() {
 
   return (
     <>
-      {exercicios.length === 0 && (
-        <DNA
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
-        />
-      )}
       <div
-        className="container mx-auto my-4 
-                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+        }}
       >
-        {exercicios.map((exercicio) => (
-          <CardExercicio key={exercicio.id} exercicio={exercicio} />
-        ))}
+      
+      <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+        <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+          Ver Exercícios
+        </h1>
       </div>
+
+
+
+
+        {exercicios.length === 0 && (
+          <DNA
+            visible={true}
+            height="200"
+            width="200"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper mx-auto"
+          />
+        )}
+        <div
+          className="container mx-auto my-4 
+                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          {exercicios.map((exercicio) => (
+            <CardExercicio key={exercicio.id} exercicio={exercicio} />
+          ))}
+        </div>
+        </div>
     </>
   );
 }

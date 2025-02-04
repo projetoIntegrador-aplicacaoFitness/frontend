@@ -60,7 +60,7 @@ function DeletarExercicio() {
       if (error.toString().includes("403")) {
         handleLogout();
       } else {
-      ToastAlerta("Erro ao deletar Exercício.",'erro');
+      ToastAlerta("Erro ao deletar exercício!",'erro');
       }
     }
 
@@ -69,7 +69,7 @@ function DeletarExercicio() {
   }
 
   function retornar() {
-    navigate("/postagens");
+    navigate("/exercicios");
   }
 
   return (

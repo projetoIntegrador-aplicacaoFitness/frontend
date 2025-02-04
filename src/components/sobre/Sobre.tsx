@@ -5,6 +5,20 @@ import { Link } from "react-router-dom";
 function Sobre() {
   return (
     <>
+    <div
+        className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
+        }}
+      >
+      
+      <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+        <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+          Conheça a Cardanis Fit
+        </h1>
+      </div>
+
       <div className=" flex flex-col w-full items-center bg-black  sm:px-2">
         <div className="bg-yellow-500 w-full mt-16 grid md:grid-cols-2 sm:grid-cols-1 text-center">
           <div className="flex md:flex-row flex-col items-center justify-center my-8 mx-4 ">
@@ -24,9 +38,6 @@ function Sobre() {
               alt="Dois halteres"
             />
           </div>
-        </div>
-        <div className="bg-white mt-8 px-8 rounded-xl">
-          <h2 className="text-4xl font-thin font-mono text-black-600">Sobre a Cardanis Fit</h2>
         </div>
         <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4 mt-8 w-full bg-yellow-500 py-8 ">
           <div className="flex flex-col items-center p-4 bg-white rounded-2xl gap-4 shadow-2xl scale-95 hover:scale-105">
@@ -138,6 +149,7 @@ function Sobre() {
             github="https://github.com/sabrinasanmi"
           />
         </div>
+      </div>
       </div>
     </>
   );
