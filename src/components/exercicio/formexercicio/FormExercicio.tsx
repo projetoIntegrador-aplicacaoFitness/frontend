@@ -18,7 +18,17 @@ function FormExercicio() {
     descricao: "",
     icone: "",
   });
-  const [exercicio, setExercicio] = useState<Exercicio>({} as Exercicio);
+  const [exercicio, setExercicio] = useState<Exercicio>({
+    
+    nome: "",
+    serie: 0,
+    repeticao: 0,
+    peso: 0,
+    descanso: 0,
+    foto: "",
+    categoria: null,
+  });
+  
 
   const { id } = useParams<{ id: string }>();
 
@@ -63,7 +73,7 @@ function FormExercicio() {
 
   useEffect(() => {
     if (token === "") {
-      ToastAlerta("Você precisa estar logado!",'info');
+      ToastAlerta("Você precisa estar logado!", "info");
       navigate("/");
     }
   }, [token]);
@@ -84,12 +94,15 @@ function FormExercicio() {
   }, [categoria]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setExercicio({
-      ...exercicio,
-      [e.target.name]: e.target.value,
+    const { name, value, type } = e.target;
+  
+    setExercicio((prevExercicio) => ({
+      ...prevExercicio,
+      [name]: type === "number" ? Number(value) : value, // Converte para número se for um input numérico
       categoria: categoria,
-    });
+    }));
   }
+  
 
   function retornar() {
     navigate("/exercicios");
@@ -106,31 +119,30 @@ function FormExercicio() {
             Authorization: token,
           },
         });
-        navigate('/exercicios')
-        ToastAlerta("Exercício atualizado com sucesso",'sucesso');
-        
+        navigate("/exercicios");
+        ToastAlerta("Exercício atualizado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
         } else {
-          ToastAlerta("Erro ao atualizar exercício",'erro');
+          ToastAlerta("Erro ao atualizar exercício", "erro");
         }
       }
     } else {
       try {
+        console.log("Dados enviados:", JSON.stringify(exercicio, null, 2));
         await cadastrar(`/exercicios`, exercicio, setExercicio, {
           headers: {
             Authorization: token,
           },
         });
-        navigate('/exercicios')
-        ToastAlerta("Exercício cadastrado com sucesso",'sucesso');
-        
+        navigate("/exercicios");
+        ToastAlerta("Exercício cadastrado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
           handleLogout();
         } else {
-          ToastAlerta("Erro ao cadastrar exercício",'erro');
+          ToastAlerta("Erro ao cadastrar exercício", "erro");
         }
       }
     }
@@ -152,9 +164,11 @@ function FormExercicio() {
             <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
               {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
             </h1>
-            
-            <form className="flex flex-col w-full gap-4" onSubmit={gerarNovoExercicio}>
-              
+
+            <form
+              className="flex flex-col w-full gap-4"
+              onSubmit={gerarNovoExercicio}
+            >
               <div className="flex flex-col gap-2">
                 <label htmlFor="nome">Nome do Exercício</label>
                 <input
@@ -164,7 +178,9 @@ function FormExercicio() {
                   required
                   className="border-2 border-orange-400 rounded p-2 text-black-200"
                   value={exercicio.nome}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    atualizarEstado(e)
+                  }
                 />
               </div>
 
@@ -177,8 +193,70 @@ function FormExercicio() {
                   required
                   className="border-2 border-orange-400 rounded p-2 text-black-200"
                   value={exercicio.foto}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    atualizarEstado(e)
+                  }
                 />
+              </div>
+              <div className="flex flex-row gap-2">
+                <div className="flex flex-col gap-2 w-1/2">
+                  <label htmlFor="serie">Nº de Séries Recomendadas</label>
+                  <input
+                    type="number"
+                    placeholder="Insira um valor"
+                    name="serie"
+                    required
+                    className="border-2 border-orange-400 rounded p-2 text-black-200"
+                    value={exercicio.serie}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      atualizarEstado(e)
+                    }
+                  />
+                </div>
+                <div className="flex flex-col gap-2 w-1/2">
+                  <label htmlFor="repeticao">Nº de Repetições</label>
+                  <input
+                    type="number"
+                    placeholder="Insira um valor"
+                    name="repeticao"
+                    required
+                    className="border-2 border-orange-400 rounded p-2 text-black-200"
+                    value={exercicio.repeticao}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      atualizarEstado(e)
+                    }
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row gap-2">
+                <div className="flex flex-col gap-2 w-1/2">
+                  <label htmlFor="peso">Peso Recomendado  (Kg)</label>
+                  <input
+                    type="number"
+                    placeholder="Insira um valor"
+                    name="peso"
+                    required
+                    className="border-2 border-orange-400 rounded p-2 text-black-200"
+                    value={exercicio.peso}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      atualizarEstado(e)
+                    }
+                  />
+                </div>
+                <div className="flex flex-col gap-2 w-1/2">
+                  <label htmlFor="descanso">Tempo de Descanso (minutos)</label>
+                  <input
+                    type="number"
+                    placeholder="Tempo de descanso"
+                    name="descanso"
+                    required
+                    className="border-2 border-orange-400 rounded p-2 text-black-200"
+                    value={exercicio.descanso}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      atualizarEstado(e)
+                    }
+                  />
+                </div>
               </div>
 
               <div className="flex flex-col gap-2">
@@ -193,7 +271,11 @@ function FormExercicio() {
                     Selecione um Treino
                   </option>
                   {categorias.map((categoria) => (
-                    <option key={categoria.id} className="text-black-200" value={categoria.id}>
+                    <option
+                      key={categoria.id}
+                      className="text-black-200"
+                      value={categoria.id}
+                    >
                       {categoria.descricao}
                     </option>
                   ))}
@@ -214,7 +296,9 @@ function FormExercicio() {
                       visible={true}
                     />
                   ) : (
-                    <span>{id !== undefined ? "Atualizar" : "Cadastrar exercicio"}</span>
+                    <span>
+                      {id !== undefined ? "Atualizar" : "Cadastrar exercicio"}
+                    </span>
                   )}
                 </button>
               </div>
@@ -227,4 +311,3 @@ function FormExercicio() {
 }
 
 export default FormExercicio;
-

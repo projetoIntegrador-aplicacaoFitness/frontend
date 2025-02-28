@@ -2,9 +2,9 @@
 import Categoria from './Categoria';
 
 export default interface Exercicio {
-  id: number;
+  id?: number;
   nome: string;
-  tempo: number,
+  tempo?: number,
   serie: number,
   repeticao: number,
   peso: number,

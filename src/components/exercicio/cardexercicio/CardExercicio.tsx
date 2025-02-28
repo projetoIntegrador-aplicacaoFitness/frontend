@@ -10,12 +10,23 @@ function CardExercicio({ exercicio }: CardExercicioProps) {
     <>
       <div className="max-w-sm rounded-2xl overflow-hidden shadow-2xl  bg-white">
         <img
-          className="w-30 h-56 object-cover rounded-4xl rounded-2xl mx-auto"
+          className="w-11/12 h-56 object-cover rounded-4xl rounded-2xl mx-auto mt-3"
           src={exercicio.foto}
           alt={"Foto: " + exercicio.nome}
         />
-        <div className="flex flex-col items-center justify-center my-4">
-          <p className="text-black-200 font-semibold">{exercicio.nome}</p>
+        <div className="flex flex-col items-center justify-center my-4 text-black-200">
+          <p className=" font-semibold">{exercicio.nome}</p>
+          <hr className="border border-black w-2/3 mb-4"/>
+          <p>Recomendações:</p>
+          <div className="flex flex-row justify-around w-full text-left p-2">
+            <p>Nº Séries: {exercicio.serie}</p>
+            <p>Nº Repetições: {exercicio.repeticao}</p>
+          </div>
+          
+          <div className="flex flex-row justify-around w-full text-left p-2">
+            <p>Peso: {exercicio.peso} Kgs</p>
+            <p>Descanso: {exercicio.descanso} minuto(s)</p>
+          </div>
         </div>
 
         <div className="flex flex-row justify-around">
