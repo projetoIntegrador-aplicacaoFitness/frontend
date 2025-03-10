@@ -38,10 +38,12 @@ function Login() {
         className="grid grid-cols-1 lg:grid-cols-1
                     h-screen place-items-center font-bold bg-[url(https://ik.imagekit.io/ix39wusls/Imagens%20PI%20Fitness/gymHD?updatedAt=1738333000089)]  bg-cover"
       >
+        
         <form
-          className="flex justify-center items-center flex-col w- gap-4 bg-black-600  opacity-75  p-8 rounded-2xl text-yellow-500 shadow-2xl w-auto"
+          className="flex justify-center items-center flex-col gap-4 bg-black-600  bg-opacity-75  p-8 rounded-2xl text-yellow-500 shadow-2xl w-auto"
           onSubmit={login}
         >
+          <img src="https://ik.imagekit.io/sanmi/Logo-sem%20fundo.png?updatedAt=1738598851003" alt="Logo Cardanis" className="h-40 scale-150"/>
           <h2 className="text-yellow-500 text-5xl ">Bem-vindo</h2>
           <p>Seu treino te aguarda!</p>
           <div className="flex flex-col w-full">
@@ -98,6 +100,7 @@ function Login() {
               Cadastre-se
             </Link>
           </p>
+          
         </form>
       </div>
     </>

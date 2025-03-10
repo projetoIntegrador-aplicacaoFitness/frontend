@@ -19,7 +19,6 @@ function FormExercicio() {
     icone: "",
   });
   const [exercicio, setExercicio] = useState<Exercicio>({
-    
     nome: "",
     serie: 0,
     repeticao: 0,
@@ -28,7 +27,6 @@ function FormExercicio() {
     foto: "",
     categoria: null,
   });
-  
 
   const { id } = useParams<{ id: string }>();
 
@@ -95,14 +93,13 @@ function FormExercicio() {
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     const { name, value, type } = e.target;
-  
+
     setExercicio((prevExercicio) => ({
       ...prevExercicio,
       [name]: type === "number" ? Number(value) : value, // Converte para número se for um input numérico
       categoria: categoria,
     }));
   }
-  
 
   function retornar() {
     navigate("/exercicios");
@@ -160,7 +157,7 @@ function FormExercicio() {
         }}
       >
         <div className="flex justify-center items-center min-h-screen">
-          <div className="w-full max-w-lg p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-black-600 opacity-75">
+          <div className="w-full max-w-lg p-6 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-black-600 bg-opacity-75">
             <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
               {id !== undefined ? "Editar Exercício" : "Cadastrar Exercício"}
             </h1>
@@ -198,8 +195,8 @@ function FormExercicio() {
                   }
                 />
               </div>
-              <div className="flex flex-row gap-2">
-                <div className="flex flex-col gap-2 w-1/2">
+              <div className="flex  flex-col md:flex-row gap-2">
+                <div className="flex flex-col gap-2 md:w-1/2">
                   <label htmlFor="serie">Nº de Séries Recomendadas</label>
                   <input
                     type="number"
@@ -213,7 +210,7 @@ function FormExercicio() {
                     }
                   />
                 </div>
-                <div className="flex flex-col gap-2 w-1/2">
+                <div className="flex flex-col gap-2 md:w-1/2">
                   <label htmlFor="repeticao">Nº de Repetições</label>
                   <input
                     type="number"
@@ -230,7 +227,7 @@ function FormExercicio() {
               </div>
               <div className="flex flex-row gap-2">
                 <div className="flex flex-col gap-2 w-1/2">
-                  <label htmlFor="peso">Peso Recomendado  (Kg)</label>
+                  <label htmlFor="peso">Peso Recomendado (Kg)</label>
                   <input
                     type="number"
                     placeholder="Insira um valor"
@@ -285,7 +282,7 @@ function FormExercicio() {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="rounded text-white bg-yellow-700 hover:bg-yellow-500 w-1/2 py-2 flex justify-center"
+                  className="rounded text-white bg-yellow-700 hover:bg-yellow-500 w-1/2 py-2 flex justify-center "
                 >
                   {isLoading ? (
                     <RotatingLines

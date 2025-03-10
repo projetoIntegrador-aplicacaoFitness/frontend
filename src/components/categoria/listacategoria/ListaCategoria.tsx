@@ -58,6 +58,11 @@ function ListaCategoria() {
                         </h1>
                     </div>
                 </div>
+                <div className="flex justify-center p-4 space-x-4">
+                    <Link className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold ' to="/cadastrar-treino">
+                        Novo Treino
+                    </Link>
+                </div>
 
 
                 {categorias.length === 0 && (
@@ -81,11 +86,7 @@ function ListaCategoria() {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center p-4 space-x-4">
-                    <Link className='border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold ' to="/cadastrar-treino">
-                        Novo Treino
-                    </Link>
-                </div>
+                
             </div>
         </>
     );
