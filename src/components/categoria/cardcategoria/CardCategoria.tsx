@@ -8,6 +8,7 @@ interface CardCategoriaProps {
 
 function CardCategoria({ categoria }: CardCategoriaProps) {
   return (
+    <Link to={`/treinos/${categoria.id}/exercicios`}>
     <div
       className="border flex flex-col border-gray rounded-2xl justify-between overflow-hidden 
             transition duration-300 hover:scale-105 my-10 bg-white shadow-sm grid-cols-1  h-auto w-72 "
@@ -46,6 +47,7 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
         </Link>
       </div>
     </div>
+    </Link>
   );
 }
 

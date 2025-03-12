@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
@@ -6,18 +6,41 @@ import { DNA } from "react-loader-spinner";
 import Exercicio from "../../../models/Exercicio";
 import CardExercicio from "../cardexercicio/CardExercicio";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+import Categoria from "../../../models/Categoria";
 
 function ListaExercicios() {
   const navigate = useNavigate();
+  const { idCategoria } = useParams(); // Pegamos o ID da URL, se existir
 
   const [exercicios, setExercicios] = useState<Exercicio[]>([]);
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
+  const [categoria, setCategoria] = useState<Categoria>();
+
+  async function buscarCategoria() {
+    try {
+        await buscar(`categorias/${idCategoria}`, setCategoria, {
+            headers: { Authorization: token }
+        });
+    } catch (error: any) {
+        if (error.toString().includes('403')) {
+            handleLogout();
+        }
+    }
+}
+useEffect(()=>{
+  buscarCategoria()
+},[idCategoria])
+
   async function buscarExercicios() {
     try {
-      await buscar("/exercicios", setExercicios, {
+      const endpoint = idCategoria
+        ? `/categorias/${idCategoria}/exercicios` // Se tiver ID, busca os exercícios filtrados
+        : "/exercicios"; // Caso contrário, busca todos os exercícios
+
+      await buscar(endpoint, setExercicios, {
         headers: {
           Authorization: token,
         },
@@ -31,14 +54,14 @@ function ListaExercicios() {
 
   useEffect(() => {
     if (token === "") {
-      ToastAlerta("Você precisa estar logado", 'info');
+      ToastAlerta("Você precisa estar logado", "info");
       navigate("/");
     }
   }, [token]);
 
   useEffect(() => {
     buscarExercicios();
-  }, [exercicios.length]);
+  }, [idCategoria]); // Refaz a busca quando a categoria muda
 
   return (
     <>
@@ -67,10 +90,7 @@ function ListaExercicios() {
             wrapperClass="dna-wrapper mx-auto"
           />
         )}
-        <div
-          className="container mx-auto my-4 
-                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
+        <div className="container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {exercicios.map((exercicio) => (
             <CardExercicio key={exercicio.id} exercicio={exercicio} />
           ))}

@@ -1,20 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
-import { ToastAlerta } from '../../utils/ToastAlerta';
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Perfil() {
   const navigate = useNavigate();
   const { usuario } = useContext(AuthContext);
 
-  const [peso, setPeso] = useState(usuario?.peso || ''); 
-  const [altura, setAltura] = useState(usuario?.altura || ''); 
-  const [imc, setImc] = useState(usuario?.imc || ''); 
-  const [nivelSaude, setNivelSaude] = useState('');
+  const [peso, setPeso] = useState(usuario?.peso || "");
+  const [altura, setAltura] = useState(usuario?.altura || "");
+  const [imc, setImc] = useState(usuario?.imc || "");
+  const [nivelSaude, setNivelSaude] = useState("");
 
   useEffect(() => {
     if (!usuario?.token) {
-      ToastAlerta('Você precisa estar logado!','info');
+      ToastAlerta("Você precisa estar logado!", "info");
       navigate("/");
     }
   }, [usuario?.token, navigate]);
@@ -30,21 +30,21 @@ function Perfil() {
         setImc(imcCalculado.toFixed(2));
 
         if (imcCalculado < 18.5) {
-          setNivelSaude('Abaixo do peso');
+          setNivelSaude("Abaixo do peso");
         } else if (imcCalculado < 25) {
-          setNivelSaude('Peso normal');
+          setNivelSaude("Peso normal");
         } else if (imcCalculado < 30) {
-          setNivelSaude('Sobrepeso');
+          setNivelSaude("Sobrepeso");
         } else if (imcCalculado < 35) {
-          setNivelSaude('Obesidade grau I');
+          setNivelSaude("Obesidade grau I");
         } else if (imcCalculado < 40) {
-          setNivelSaude('Obesidade grau II');
+          setNivelSaude("Obesidade grau II");
         } else {
-          setNivelSaude('Obesidade grau III');
+          setNivelSaude("Obesidade grau III");
         }
       } else {
-        setImc('');
-        setNivelSaude('');
+        setImc("");
+        setNivelSaude("");
       }
     }
 
@@ -53,95 +53,107 @@ function Perfil() {
 
   const getNivelSaudeStyle = () => {
     switch (nivelSaude) {
-      case 'Peso normal':
-        return 'font-bold text-green-500';
-      case 'Sobrepeso':
-        return 'font-bold text-orange-500';
-      case 'Obesidade grau I':
-        return 'font-bold text-red-400';
-      case 'Obesidade grau II':
-        return 'font-bold text-red-600';
-      case 'Obesidade grau III':
-        return 'font-bold text-red-800';
+      case "Peso normal":
+        return "font-bold text-green-500";
+      case "Sobrepeso":
+        return "font-bold text-orange-500";
+      case "Obesidade grau I":
+        return "font-bold text-red-400";
+      case "Obesidade grau II":
+        return "font-bold text-red-600";
+      case "Obesidade grau III":
+        return "font-bold text-red-800";
       default:
-        return 'text-gray-700';
+        return "text-gray-700";
     }
   };
 
   return (
     <>
-    <div
+      <div
         className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
         }}
-    >
-    
-    <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
-
-    <div className="container mx-auto p-2 rounded-lg shadow-lg bg-white max-w-md" style={{ backgroundColor: 'var(--color-peach-200)' }}>
-        <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
-          Perfil
-        </h1>
-      <div className="flex flex-col items-center">
-        <img
-          className="rounded-md w-40 h-40 object-cover border-4 border-white mb-4"
-          src={usuario?.foto}
-          alt={`Foto de perfil de ${usuario?.nome}`}
-        />
-        <div className="text-center" style={{ color: 'var(--color-black-200)' }}>
-          <h2 className="text-2xl font-bold mb-2">{usuario?.nome}</h2>
-          <p className="mb-1">Email: {usuario?.usuario}</p>
-          <div className="flex items-center justify-center">
-            <div className="mr-4 text-black-200">
-              <label htmlFor="peso" className="text-white block">Peso (kg):</label>
-              <input
-                type="number"
-                id="peso"
-                className="border border-gray-300 rounded px-2 py-1 w-20"
-                value={peso}
-                onChange={(e) => setPeso(e.target.value)}
-                style={{ color: 'var(--color-black-200)' }}
-                min="0"
+      >
+        <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
+          <div
+            className="container mx-auto p-2 rounded-lg shadow-lg bg-white max-w-md"
+            style={{ backgroundColor: "var(--color-peach-200)" }}
+          >
+            <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
+              Perfil
+            </h1>
+            <div className="flex flex-col items-center">
+              <img
+                className="rounded-md w-40 h-40 object-cover border-4 border-white mb-4"
+                src={usuario?.foto}
+                alt={`Foto de perfil de ${usuario?.nome}`}
               />
+              <div
+                className="text-center"
+                style={{ color: "var(--color-black-200)" }}
+              >
+                <h2 className="text-2xl font-bold mb-2">{usuario?.nome}</h2>
+                <p className="mb-1">Email: {usuario?.usuario}</p>
+                <div className="flex items-center justify-center">
+                  <div className="mr-4 text-black-200">
+                    <label htmlFor="peso" className="text-white block">
+                      Peso (kg):
+                    </label>
+                    <input
+                      type="number"
+                      id="peso"
+                      className="border border-gray-300 rounded px-2 py-1 w-20"
+                      value={peso}
+                      onChange={(e) => setPeso(e.target.value)}
+                      style={{ color: "var(--color-black-200)" }}
+                      min="0"
+                    />
+                  </div>
+                  <div className="text-black-200">
+                    <label htmlFor="altura" className="text-white block">
+                      Altura (cm):
+                    </label>
+                    <input
+                      type="number"
+                      id="altura"
+                      className="border border-gray-300 rounded px-2 py-1 w-20"
+                      value={altura}
+                      onChange={(e) => setAltura(e.target.value)}
+                      style={{ color: "var(--color-black-200)" }}
+                      min="0"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <p>Seu Índice de Massa Corporal (IMC) de hoje está em:</p>
+                  <p className="text-3xl font-bold">{imc || "-"}</p>
+                </div>
+
+                <p className={`mt-2 ${getNivelSaudeStyle()}`}>
+                  Classificação: {nivelSaude || "-"}
+                </p>
+
+                <div className="mt-4 text-center">
+                  <p className="font-bold">
+                    Tabela de IMC (Índice de Massa Corporal) para adultos:
+                  </p>
+                  <ul className="list-disc pl-5 text-left">
+                    <li>IMC entre 18.5 e 24.9: peso normal</li>
+                    <li>IMC entre 25 e 29.9: sobrepeso</li>
+                    <li>IMC entre 30 e 34.9: obesidade grau I</li>
+                    <li>IMC entre 35 e 39.9: obesidade grau II</li>
+                    <li>IMC maior que 40: obesidade grau III</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="text-black-200">
-              <label htmlFor="altura" className="text-white block">Altura (cm):</label>
-              <input
-                type="number"
-                id="altura"
-                className="border border-gray-300 rounded px-2 py-1 w-20"
-                value={altura}
-                onChange={(e) => setAltura(e.target.value)}
-                style={{ color: 'var(--color-black-200)' }}
-                min="0"
-              />
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p>Seu Índice de Massa Corporal (IMC) de hoje está em:</p>
-            <p className="text-3xl font-bold">{imc || "-"}</p>
-          </div>
-
-          <p className={`mt-2 ${getNivelSaudeStyle()}`}>Classificação: {nivelSaude || "-"}</p>
-
-          <div className="mt-4 text-center">
-            <p className="font-bold">Tabela de IMC (Índice de Massa Corporal) para adultos:</p>
-            <ul className="list-disc pl-5 text-left">
-              <li>IMC entre 18.5 e 24.9: peso normal</li>
-              <li>IMC entre 25 e 29.9: sobrepeso</li>
-              <li>IMC entre 30 e 34.9: obesidade grau I</li>
-              <li>IMC entre 35 e 39.9: obesidade grau II</li>
-              <li>IMC maior que 40: obesidade grau III</li>
-            </ul>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
     </>
   );
 }

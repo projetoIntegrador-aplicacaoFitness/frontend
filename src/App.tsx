@@ -38,6 +38,7 @@ function App() {
               <Route path="/editarexercicio/:id" element={<FormExercicio />} />
               <Route path="/deletarexercicio/:id" element={<DeletarExercicio />} />
               <Route path='/treino' element={<ListaCategoria/>}/>
+              <Route path="/treinos/:idCategoria/exercicios" element={<ListaExercicios />} />
               <Route path='/cadastrar-treino' element={<FormCategoria/>}/>
               <Route path="/editarCategoria/:id" element={<FormCategoria/>}/>
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria/>}/>
