@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
@@ -17,22 +17,6 @@ function ListaExercicios() {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  const [categoria, setCategoria] = useState<Categoria>();
-
-  async function buscarCategoria() {
-    try {
-        await buscar(`categorias/${idCategoria}`, setCategoria, {
-            headers: { Authorization: token }
-        });
-    } catch (error: any) {
-        if (error.toString().includes('403')) {
-            handleLogout();
-        }
-    }
-}
-useEffect(()=>{
-  buscarCategoria()
-},[idCategoria])
 
   async function buscarExercicios() {
     try {
@@ -66,18 +50,27 @@ useEffect(()=>{
   return (
     <>
       <div
-        className="relative w-full min-h-screen bg-fixed bg-cover bg-center"
+        className="relative w-full min-h-screen bg-fixed bg-cover bg-center pb-4"
         style={{
           backgroundImage:
             "url('https://i.postimg.cc/QMvT0m2G/imagemdefundo.jpg')",
         }}
       >
-        <div className="py-16">
+        <div className="pt-16">
           <div className="w-full max-w-lg px-4 py-2 rounded-2xl shadow-xl container flex flex-col mx-auto items-center bg-gray-800">
             <h1 className="text-3xl text-center my-4 text-yellow-400 drop-shadow-md transition duration-300 ease-in-out hover:text-orange-500">
               Exercícios
             </h1>
           </div>
+        </div>
+
+        <div className="flex justify-center p-4 space-x-4">
+          <Link
+            className="border rounded px-8 py-4 hover:bg-yellow-500 bg-yellow-700 text-black font-bold "
+            to="/cadastrar-exercicio"
+          >
+            Novo Exercício
+          </Link>
         </div>
 
         {exercicios.length === 0 && (
@@ -90,7 +83,7 @@ useEffect(()=>{
             wrapperClass="dna-wrapper mx-auto"
           />
         )}
-        <div className="container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="flex flex-wrap justify-center gap-8 ">
           {exercicios.map((exercicio) => (
             <CardExercicio key={exercicio.id} exercicio={exercicio} />
           ))}

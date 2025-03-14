@@ -31,11 +31,12 @@ function Sobre() {
                 <li>| Tecnologia</li>
               </ul>
             </div>
-            <div className="m-4 flex justify-center items-center">
+            <div className="m-4 flex justify-center items-center ">
               <img
                 className="rounded-2xl max-w-md w-full shadow-2xl object-cover sm:w-auto "
                 src="https://ik.imagekit.io/ix39wusls/Imagens%20PI%20Fitness/halteres?updatedAt=1738436341838"
                 alt="Dois halteres"
+                
               />
             </div>
           </div>

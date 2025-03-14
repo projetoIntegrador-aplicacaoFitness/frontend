@@ -14,18 +14,18 @@ function FormExercicio() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
 
   const [categoria, setCategoria] = useState({
-    id: 0,
+    id: undefined,
     descricao: "",
     icone: "",
   });
   const [exercicio, setExercicio] = useState<Exercicio>({
     nome: "",
-    serie: 0,
-    repeticao: 0,
-    peso: 0,
-    descanso: 0,
+    serie: undefined,
+    repeticao: undefined,
+    peso: undefined,
+    descanso: undefined,
     foto: "",
-    categoria: null,
+    categoria: undefined,
   });
 
   const { id } = useParams<{ id: string }>();
@@ -45,7 +45,10 @@ function FormExercicio() {
     }
   }
 
+  const [isCategoriaCarregando, setIsCategoriaCarregando] = useState(false);
+
   async function buscarCategoriaPorId(id: string) {
+    setIsCategoriaCarregando(true); // Ativa o spinner
     try {
       await buscar(`/categorias/${id}`, setCategoria, {
         headers: { Authorization: token },
@@ -55,6 +58,7 @@ function FormExercicio() {
         handleLogout();
       }
     }
+    setTimeout(() => setIsCategoriaCarregando(false), 1500); // Simula um pequeno tempo de carregamento
   }
 
   async function buscarCategorias() {
@@ -202,6 +206,7 @@ function FormExercicio() {
                     type="number"
                     placeholder="Insira um valor"
                     name="serie"
+                    min="1"
                     required
                     className="border-2 border-orange-400 rounded p-2 text-black-200"
                     value={exercicio.serie}
@@ -216,6 +221,7 @@ function FormExercicio() {
                     type="number"
                     placeholder="Insira um valor"
                     name="repeticao"
+                    min="1"
                     required
                     className="border-2 border-orange-400 rounded p-2 text-black-200"
                     value={exercicio.repeticao}
@@ -232,6 +238,7 @@ function FormExercicio() {
                     type="number"
                     placeholder="Insira um valor"
                     name="peso"
+                    min="1"
                     required
                     className="border-2 border-orange-400 rounded p-2 text-black-200"
                     value={exercicio.peso}
@@ -246,6 +253,7 @@ function FormExercicio() {
                     type="number"
                     placeholder="Tempo de descanso"
                     name="descanso"
+                    min="1"
                     required
                     className="border-2 border-orange-400 rounded p-2 text-black-200"
                     value={exercicio.descanso}
@@ -261,6 +269,7 @@ function FormExercicio() {
                 <select
                   name="categoria"
                   id="categoria"
+                  required
                   className="border p-2 border-orange-400 rounded text-black-200"
                   onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
                 >
@@ -282,9 +291,10 @@ function FormExercicio() {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="rounded text-white bg-yellow-700 hover:bg-yellow-500 w-1/2 py-2 flex justify-center "
+                  className="rounded text-white bg-yellow-700 hover:bg-yellow-500 w-1/2 py-2 flex justify-center"
+                  disabled={isLoading || categoria.id === undefined} // Bloqueia enquanto carrega
                 >
-                  {isLoading ? (
+                  {isLoading || isCategoriaCarregando ? (
                     <RotatingLines
                       strokeColor="white"
                       strokeWidth="5"
@@ -294,7 +304,7 @@ function FormExercicio() {
                     />
                   ) : (
                     <span>
-                      {id !== undefined ? "Atualizar" : "Cadastrar exercicio"}
+                      {id !== undefined ? "Atualizar" : "Cadastrar Exercício"}
                     </span>
                   )}
                 </button>

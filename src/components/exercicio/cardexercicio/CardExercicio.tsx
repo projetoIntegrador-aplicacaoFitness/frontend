@@ -8,7 +8,7 @@ interface CardExercicioProps {
 function CardExercicio({ exercicio }: CardExercicioProps) {
   return (
     <>
-      <div className="max-w-sm rounded-2xl overflow-hidden shadow-2xl  bg-white">
+      <div className="w-96 rounded-2xl overflow-hidden shadow-2xl  bg-white">
         <img
           className="w-11/12 h-56 object-cover rounded-2xl mx-auto mt-3"
           src={exercicio.foto}
