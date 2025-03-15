@@ -1,0 +1,40 @@
+-- CONFIGURAR PROJETO --
+
+yarn create vite nomedoprojeto --template react-ts
+
+cd nomedoprojeto
+
+yarn
+
+-------acessar a aba Using Vite--------
+https://tailwindcss.com/docs/installation/using-vite
+
+seguir no site as etapas:
+- terminal
+- vite.config.ts
+- ambos arquivos CSS
+
+incluir a linha abaixo no HTML (antes do titulo, linha 7)
+  <link href="/dist/styles.css" rel="stylesheet">
+-----------fim da configuração do Vite------
+
+yarn add @phosphor-icons/react
+
+yarn add react-router-dom
+
+
+Criar pastas com arquivos tsx:
+components > footer > Footer.tsx
+pages > home > Home.tsx
+
+
+-- GUIA PARA O GIT MERGE--
+git checkout main
+git pull
+git checkout dev - BRANCH QUE VC VAI
+git merge origin/Navbar - BRANCH P/ JUNTAR COM A DEV
+CONFLITOS (EM VERDE É O QUE ESTÁ NA DEV E ROXO É O QUE ESTÁ NA BRANCH Q VC QUER)
+git add .
+git commit -m "nome do commit"
+git merge origin/produtos
+CONFLITOS

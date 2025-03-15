@@ -1,6 +1,7 @@
-import { GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
+import { GithubLogo, Info, FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
 import { ReactNode, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 function Footer() {
 
@@ -10,36 +11,38 @@ function Footer() {
 
     let component: ReactNode
 
-    if (usuario.token !== "") {
+    return (
 
-        component = (
+        <footer className="bg-black-600 text-white py-4  rounded-t-xl">
+            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
 
-            <div className="flex justify-center bg-dark text-beige">
-                <div className="container flex flex-col items-center py-4">
-                    <p className='text-xl font-bold'>
-                        Blog Pessoal Generation | Copyright: {data}
-                    </p>
-                    <p className='text-lg'>Feito por Sabrina S. Lima</p>
-                    <div className='flex gap-2'>
-                        <a href="https://www.linkedin.com/in/sabrina-santoslima/" target="_blank">
-                            <LinkedinLogo size={48} weight='bold' className="transition-colors duration-300 hover:text-pink" />
-                        </a>
-                        <a href="https://github.com/sabrinasanmi?tab=repositories" target="_blank">
-                            <GithubLogo size={48} weight='bold'  className="transition-colors duration-300 hover:text-blue" />
-                        </a>
-                        <a href="https://www.instagram.com/sanmisabrina/" target="_blank">
-                            <InstagramLogo size={48} weight='bold' className="transition-colors duration-300 hover:text-pink" />
-                        </a>
-                    </div>
+                <div className="mb-4 md:mb-0">
+                    <span className="font-semibold">© {data} Cardanis</span> | Todos os direitos reservados.
+                </div>
+
+                <div className="text-white hover:text-lime-green flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" >Termos de Uso</a>
+                </div>
+                <div className="text-white hover:text-lime-green flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" >Política de Privacidade</a>
+                </div>
+
+                <div className="flex space-x-4">
+                    <a href="https://www.facebook.com/generationbrasil" target="_blank" className="text-white hover:text-orange-400">
+                        <FacebookLogo size={24} />
+                    </a>
+                    <a href="https://github.com/projetoIntegrador-aplicacaoDelivery/FrontEnd" target="_blank" className="text-white hover:text-orange-400">
+                        <GithubLogo size={24} />
+                    </a>
+                    <a href="https://www.instagram.com/generationbrasil" target="_blank" className="text-white hover:text-orange-400">
+                        <InstagramLogo size={24} />
+                    </a>
+                    <a href="https://www.linkedin.com/school/generationbrasil" target="_blank" className="text-white hover:text-orange-400">
+                        <LinkedinLogo size={24} />
+                    </a>
                 </div>
             </div>
-
-        )
-    }
-    return (
-        <>
-            { component }
-        </>
+        </footer>
     )
 }
 

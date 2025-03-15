@@ -1,7 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-    @apply bg-black;
-}
+ 
+@font-face {
+    font-family: "Brown Sunflower Sans";
+    src: url("/src/assets/fonts/BROWN SUNFLOWER SANS.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    @apply font-sunflower;
+    @apply bg-black-600 text-white;
+  }
+    .font-sunflower {
+        font-family: "Brown Sunflower Sans", sans-serif;
+    }
